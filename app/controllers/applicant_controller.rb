@@ -1,6 +1,8 @@
 require './config/environment'
 class ApplicantController < Application Controller
 
+  get '/' do
+    erb :index 
 
   helpers do
 
@@ -8,7 +10,7 @@ class ApplicantController < Application Controller
       !!current_user
     end
 
-  
+
 
 end
 
