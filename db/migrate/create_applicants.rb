@@ -9,6 +9,8 @@ class CreateApplicants < ActiveRecord::Base
       t.string :athletic_interest
       t.string :hobbies
       t.string :awards
+
+      t.timestamps null: false 
     end
   end
 end

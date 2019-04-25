@@ -9,6 +9,8 @@ class CreateColleges < ActiveRecord::Base
       t.string :major
       t.string :athletics
       t. string :extracurriculars
+
+      t.timestamps null: false  
     end
   end
 end
