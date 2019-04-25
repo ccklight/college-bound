@@ -1,21 +1,37 @@
 require './config/environment'
-class ApplicantController < Application Controller
+class ApplicantController < ApplicationController
+
 
   get '/' do
-    erb :index 
+    erb :welcome
+  end
 
-  helpers do
+  get '/applicant/new'
 
-    def logged_in?
-      !!current_user
-    end
+  end
 
+  post '/applicant'
 
+  end
 
-end
+  get '/applicant/:id'
 
+  end
 
+  get '/applicant/:id/edit'
 
+  end
 
+  patch
+
+  end
+
+  put '/applicant/:id'
+
+  end
+
+  delete '/applicant/:id'
+
+  end
 
 end
