@@ -5,19 +5,19 @@ class CollegeController < ApplicationController
     erb :welcome
   end
 
-  get '/college'/new' do
-    
-  end
-
-  post '/college' do
+  get '/colleges'/new' do
 
   end
 
-  get '/college/:id' do
+  post '/colleges' do
 
   end
 
-  get '/college/:id/edit' do
+  get '/colleges/:id' do
+
+  end
+
+  get '/colleges/:id/edit' do
 
   end
 
@@ -25,11 +25,11 @@ class CollegeController < ApplicationController
   #
   # end
 
-  put '/college/:id' do
+  put '/colleges/:id' do
 
   end
 
-  delete '/college/:id' do
+  delete '/colleges/:id' do
 
   end
 
