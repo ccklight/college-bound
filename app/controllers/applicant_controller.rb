@@ -1,4 +1,4 @@
-
+require './confi/environment'
 class ApplicantController < Application Controller
 
 
