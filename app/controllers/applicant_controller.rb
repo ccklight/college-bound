@@ -6,31 +6,31 @@ class ApplicantController < ApplicationController
     erb :welcome
   end
 
-  get '/applicant/new'
+  get '/applicant/new' do
 
   end
 
-  post '/applicant'
+  post '/applicant' do
 
   end
 
-  get '/applicant/:id'
+  get '/applicant/:id' do
 
   end
 
-  get '/applicant/:id/edit'
+  get '/applicant/:id/edit' do
+
+  end
+  #
+  # patch do
+  #
+  # end
+
+  put '/applicant/:id' do
 
   end
 
-  patch
-
-  end
-
-  put '/applicant/:id'
-
-  end
-
-  delete '/applicant/:id'
+  delete '/applicant/:id' do
 
   end
 
