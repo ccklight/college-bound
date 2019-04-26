@@ -7,14 +7,20 @@ class ApplicationController < Sinatra::Base
     set :views, 'app/views'
   end
 
-
   get '/' do
     erb :index
   end
+
+  get '/login' do
+    erb :applicant/login
+  end
   #
-  # get '/login' do
-  #   erb :'applicants/login'
+  # post '/login do'
+  #   erb :'applicant/login'
   # end
+
+
+
 
   helpers do
     def logged_in?

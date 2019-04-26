@@ -15,16 +15,18 @@ class ApplicantController < ApplicationController
       @applicant.save
       session[:applicant_id] = @applicant.id
       redirect to '/colleges'
-
-    end
+      end
   end
+
 
 
   get '/login' do
     if !logged_in?
       erb :'applicant/login'
+
     else
       redirect '/colleges'
+
     end
   end
 
