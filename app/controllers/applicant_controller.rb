@@ -35,7 +35,7 @@ class ApplicantController < ApplicationController
       redirect '/colleges'
     else
       redirect to '/registration'
-    end 
+    end
   end
 
 
@@ -48,9 +48,7 @@ class ApplicantController < ApplicationController
   #
   # end
 
-  get '/applicant/:id' do
-
-  end
+  
 
   get '/applicant/:id/edit' do
 
