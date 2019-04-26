@@ -12,6 +12,9 @@ class ApplicationController < Sinatra::Base
     erb :index
   end
 
+  get '/login' do
+    erb :'applicants/login'
+  end
 
   helpers do
     def logged_in?

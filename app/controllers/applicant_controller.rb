@@ -21,12 +21,12 @@ class ApplicantController < ApplicationController
 
   get '/login' do
     if !logged_in?
-      erb :'applicants/login'
+      erb :'applicant/login'
     else
       redirect '/colleges'
     end
-  end
 
+  end
 
   post '/login' do
     applicant = Applicant.find_by(:username => params[:username])
@@ -37,26 +37,26 @@ class ApplicantController < ApplicationController
       redirect to '/registration'
     end
   end
-
-
-
-  get '/registration/new' do # Display Registration Form to Create Applicant
-    erb :'registraton'
-  end
-
-  # post '/applicant' do
   #
+  #
+  #
+  # get '/registration/new' do # Display Registration Form to Create Applicant
+  #   erb :'registraton'
   # end
-
-
+  #
+  # # post '/applicant' do
+  # #
+  # # end
+  #
+  #
   #
   # patch do
   #
   # end
-
-  put '/applicant/:id' do
-
-  end
-
+  #
+  # # put '/applicant/:id' do
+  # #
+  # # end
+  #
 
 end
