@@ -8,7 +8,7 @@ class ApplicantController < ApplicationController
 
 
   post '/registration' do # Creates 1 applicant
-    if params[:username] == "" || params[:email] == "" || params[:password} == ""
+    if params[:username] == "" || params[:email] == "" || params[:password] == ""
       redirect to '/registration'
     else
       @applicant = Applicant.new(:username => params[:username], :email => params[:email], :password => params[:password])
@@ -58,5 +58,5 @@ class ApplicantController < ApplicationController
 
   end
 
-  
+
 end

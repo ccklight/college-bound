@@ -5,7 +5,7 @@ class CollegeController < ApplicationController
     erb :welcome
   end
 
-  get '/colleges'/new' do
+  get '/colleges'/new do
     if logged_in?
       erb :'colleges/create_college'
     else
