@@ -15,6 +15,7 @@ class CollegeController < ApplicationController
 
   post '/colleges' do
     if logged_in?
+
     redirect to 'applicants/login'
   end
 
