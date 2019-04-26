@@ -5,7 +5,7 @@ class CollegeController < ApplicationController
     erb :welcome
   end
 
-  get '/colleges'/new do
+  get '/colleges/new' do
     if logged_in?
       erb :'colleges/create_college'
     else
@@ -13,11 +13,12 @@ class CollegeController < ApplicationController
     end
   end
 
+
   post '/colleges' do
     if logged_in?
-
     redirect to 'applicants/login'
   end
+
 
   get '/colleges/:id' do
     if logged_in?
@@ -40,6 +41,7 @@ class CollegeController < ApplicationController
     end
     else
     redirect '/login'
+    end
   end
 
   end
