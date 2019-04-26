@@ -25,7 +25,20 @@ class ApplicantController < ApplicationController
     else
       redirect '/colleges'
     end
-  end 
+  end
+
+
+  post '/login' do
+    applicant = Applicant.find_by(:username => params[:username])
+    if applicant && user.authenticate(params[:password])
+      session[:applicant_id] = applicant.id
+      redirect '/colleges'
+    else
+      redirect to '/registration'
+    end 
+  end
+
+
 
   get '/registration/new' do # Display Registration Form to Create Applicant
     erb :'registraton'
