@@ -22,9 +22,9 @@ class ApplicantController < ApplicationController
     erb :'registraton'
   end
 
-  post '/applicant' do
-
-  end
+  # post '/applicant' do
+  #
+  # end
 
   get '/applicant/:id' do
 
