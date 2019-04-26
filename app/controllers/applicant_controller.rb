@@ -6,9 +6,9 @@ class ApplicantController < ApplicationController
     erb :welcome
   end
 
-  get '/applicant/new' do
-
-  end
+  # get '/applicant/new' do
+  #   erb :
+  # end
 
   post '/applicant' do
 
