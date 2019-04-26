@@ -12,13 +12,14 @@ class ApplicationController < Sinatra::Base
     erb :index
   end
 
+
   helpers do
     def logged_in?
       !!current_applicant
     end
-  end
 
     def current_applicant
-      @current_applicant || = Applicant.find_by(id: session[:applicant_id]) if session[:applicant_id]
+      @current_applicant ||= Applicant.find_by(id: session[:applicant_id]) if session[:applicant_id]
     end
+  end
 end
