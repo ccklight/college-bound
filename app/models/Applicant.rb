@@ -1,3 +1,3 @@
 class Applicant < ActiveRecord::Base
-  belongs_to college 
+  has_many :colleges
 end
