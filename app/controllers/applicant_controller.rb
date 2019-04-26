@@ -3,18 +3,19 @@ class ApplicantController < ApplicationController
 
 
   get '/registration' do
-    erb :'registration'
+    erb :'applicant/registration'
   end
 
 
   post '/registration' do # Creates 1 applicant
     if params[:username] == "" || params[:email] == "" || params[:password] == ""
-      redirect to '/registration'
+      redirect to 'applicant/registration'
     else
       @applicant = Applicant.new(:username => params[:username], :email => params[:email], :password => params[:password])
       @applicant.save
       session[:applicant_id] = @applicant.id
       redirect to '/colleges'
+
     end
   end
 
@@ -25,7 +26,6 @@ class ApplicantController < ApplicationController
     else
       redirect '/colleges'
     end
-
   end
 
   post '/login' do
@@ -34,15 +34,15 @@ class ApplicantController < ApplicationController
       session[:applicant_id] = applicant.id
       redirect '/colleges'
     else
-      redirect to '/registration'
+      redirect to 'applicant/registration'
     end
   end
-  #
-  #
-  #
-  # get '/registration/new' do # Display Registration Form to Create Applicant
-  #   erb :'registraton'
-  # end
+
+
+
+  get '/registration/new' do # Display Registration Form to Create Applicant
+    erb :'applicant/registraton'
+  end
   #
   # # post '/applicant' do
   # #
@@ -58,5 +58,6 @@ class ApplicantController < ApplicationController
   # #
   # # end
   #
+
 
 end

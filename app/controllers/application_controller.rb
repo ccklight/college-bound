@@ -11,10 +11,10 @@ class ApplicationController < Sinatra::Base
   get '/' do
     erb :index
   end
-
-  get '/login' do
-    erb :'applicants/login'
-  end
+  #
+  # get '/login' do
+  #   erb :'applicants/login'
+  # end
 
   helpers do
     def logged_in?
