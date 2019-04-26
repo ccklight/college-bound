@@ -18,6 +18,15 @@ class ApplicantController < ApplicationController
     end
   end
 
+
+  get '/login' do
+    if !logged_in?
+      erb :'applicants/login'
+    else
+      redirect '/colleges'
+    end
+  end 
+
   get '/registration/new' do # Display Registration Form to Create Applicant
     erb :'registraton'
   end
