@@ -48,11 +48,7 @@ class ApplicantController < ApplicationController
   #
   # end
 
-  
 
-  get '/applicant/:id/edit' do
-
-  end
   #
   # patch do
   #
@@ -62,8 +58,5 @@ class ApplicantController < ApplicationController
 
   end
 
-  delete '/applicant/:id' do
-
-  end
-
+  
 end
