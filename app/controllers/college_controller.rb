@@ -25,16 +25,25 @@ class CollegeController < ApplicationController
       erb :'colleges/show_college'
     else
       redirect to '/login'
-    end 
+    end
   end
+
 
   get '/colleges/:id/edit' do
+    if logged_in?
+      @college = College.find_by_id(params[:id])
+
+    if @college && @college.applicant == current_applicant
+      erb :'colleges/edit_college'
+    else
+      redirect '/colleges'
+    end
+    else
+    redirect '/login'
+  end
 
   end
 
-  # patch do
-  #
-  # end
 
   put '/colleges/:id' do
 
