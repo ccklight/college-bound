@@ -21,7 +21,7 @@ class ApplicantController < ApplicationController
 
 
   get '/login' do
-    if !logged_in?
+    if logged_in?
       erb :'applicant/login'
 
     else
