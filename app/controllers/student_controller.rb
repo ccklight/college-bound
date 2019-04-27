@@ -7,7 +7,7 @@ class StudentController < ApplicationController
   end
 
 
-  post '/registration' do # Creates 1 applicant
+  post '/registration' do # Creates 1 student
     if params[:username] == "" || params[:email] == "" || params[:password] == ""
       redirect to 'student/registration'
     else
@@ -22,7 +22,7 @@ class StudentController < ApplicationController
   #
   # get '/login' do
   #   if logged_in?
-  #     erb :'applicant/login'
+  #     erb :'student/login'
   #
   #   else
   #     redirect '/colleges'
@@ -42,11 +42,11 @@ class StudentController < ApplicationController
 
 
 
-  get '/registration/new' do # Display Registration Form to Create Applicant
+  get '/registration/new' do # Display Registration Form to Create Student
     erb :'applicant/registraton'
   end
   #
-  # # post '/applicant' do
+  # # post '/student' do
   # #
   # # end
   #
@@ -56,7 +56,7 @@ class StudentController < ApplicationController
   #
   # end
   #
-  # # put '/applicant/:id' do
+  # # put '/student/:id' do
   # #
   # # end
   #

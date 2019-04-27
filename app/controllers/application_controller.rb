@@ -12,11 +12,11 @@ class ApplicationController < Sinatra::Base
   end
 
   # get '/login' do
-  #   erb :applicant/login
+  #   erb :student/login
   # end
   #
   # post '/login do'
-  #   erb :'applicant/login'
+  #   erb :'student/login'
   # end
   get '/colleges' do
       "Hello World"
