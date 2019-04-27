@@ -1,34 +1,34 @@
 require './config/environment'
-class ApplicantController < ApplicationController
+class StudentController < ApplicationController
 
 
   get '/registration' do
-    erb :'applicant/registration'
+    erb :'student/registration'
   end
 
 
   post '/registration' do # Creates 1 applicant
     if params[:username] == "" || params[:email] == "" || params[:password] == ""
-      redirect to 'applicant/registration'
+      redirect to 'student/registration'
     else
-      @applicant = Applicant.new(:username => params[:username], :email => params[:email], :password => params[:password])
-      @applicant.save
-      session[:applicant_id] = @applicant.id
+      @student = Student.new(:username => params[:username], :email => params[:email], :password => params[:password])
+      @student.save
+      session[:student_id] = @student.id
       redirect to '/colleges'
       end
   end
 
 
-
-  get '/login' do
-    if logged_in?
-      erb :'applicant/login'
-
-    else
-      redirect '/colleges'
-
-    end
-  end
+  #
+  # get '/login' do
+  #   if logged_in?
+  #     erb :'applicant/login'
+  #
+  #   else
+  #     redirect '/colleges'
+  #
+  #   end
+  # end
 
   post '/login' do
     applicant = Applicant.find_by(:username => params[:username])

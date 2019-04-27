@@ -1,6 +1,6 @@
-class CreateApplicants < ActiveRecord::Base
+class CreateStudents < ActiveRecord::Base
   def change
-    create_table :applicants  do |t|
+    create_table :students  do |t|
       t.string :name
       t.string :email
       t.password :password_digest
@@ -10,7 +10,7 @@ class CreateApplicants < ActiveRecord::Base
       t.string :hobbies
       t.string :awards
 
-      t.timestamps null: false 
+      t.timestamps null: false
     end
   end
 end

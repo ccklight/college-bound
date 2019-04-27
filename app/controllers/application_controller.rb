@@ -18,17 +18,29 @@ class ApplicationController < Sinatra::Base
   # post '/login do'
   #   erb :'applicant/login'
   # end
+  get '/colleges' do
+      "Hello World"
+    end
 
+    get '/login' do
+      if logged_in?
+        erb :'student/login'
+
+      else
+        redirect '/colleges'
+
+      end
+    end
 
 
 
   helpers do
     def logged_in?
-      !!current_applicant
+      !!current_student
     end
 
-    def current_applicant
-      @current_applicant ||= Applicant.find_by(id: session[:applicant_id]) if session[:applicant_id]
+    def current_student
+      @current_student ||= Student.find_by(id: session[:student_id]) if session[:student_id]
     end
   end
 end

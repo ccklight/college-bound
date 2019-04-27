@@ -16,7 +16,7 @@ class CollegeController < ApplicationController
 
   post '/colleges' do
     if logged_in?
-    redirect to 'applicants/login'
+    redirect to 'students/login'
   end
 
 
@@ -34,7 +34,7 @@ class CollegeController < ApplicationController
     if logged_in?
       @college = College.find_by_id(params[:id])
 
-    if @college && @college.applicant == current_applicant
+    if @college && @college.student == current_student
       erb :'colleges/edit_college'
     else
       redirect '/colleges'
