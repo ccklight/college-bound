@@ -46,9 +46,7 @@ class StudentController < ApplicationController
 
 
 
-  get '/registration/new' do # Display Registration Form to Create Student
-    erb :'applicant/registraton'
-  end
+  
   #
   # # post '/student' do
   # #
