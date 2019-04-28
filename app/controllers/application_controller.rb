@@ -11,29 +11,7 @@ class ApplicationController < Sinatra::Base
     erb :index
   end
 
-  # get '/login' do
-  #   erb :student/login
-  # end
-  #
-  # post '/login do'
-  #   erb :'student/login'
-  # end
-  get '/colleges' do
-      "Hello World"
-    end
-
-    get '/login' do
-      if logged_in?
-        erb :'student/login'
-
-      else
-        redirect '/colleges'
-
-      end
-    end
-
-
-
+  
   helpers do
     def logged_in?
       !!current_student
