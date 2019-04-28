@@ -46,22 +46,4 @@ class StudentController < ApplicationController
 
 
 
-  
-  #
-  # # post '/student' do
-  # #
-  # # end
-  #
-  #
-  #
-  # patch do
-  #
-  # end
-  #
-  # # put '/student/:id' do
-  # #
-  # # end
-  #
-
-
 end
