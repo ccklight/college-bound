@@ -1,0 +1,8 @@
+<p> <%=@student.username%> Colleges</p>
+<% @student.colleges.each do |college| %>
+
+  <div>
+    <%= college.content %>
+  </div>
+
+<%end%> 
