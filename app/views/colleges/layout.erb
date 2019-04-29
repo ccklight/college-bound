@@ -1,0 +1,20 @@
+<!doctype html>
+<html>
+  <head>
+    <title> Colleges</title>
+  </head>
+  <body>
+    <% if logged_in? %>
+
+    <a href='/colleges/new'> Create College</a>
+    <a href='/logout'> Log Out</a>
+    <p> Welcome, <%=current_student.username%></p>
+
+    <% else%>
+      <a href='/signup'>Register</a>
+      <a href='/login'>Login</a>
+
+  <%end%>
+<!--
+  <div class='container'>
+    <% yield%>  -->
