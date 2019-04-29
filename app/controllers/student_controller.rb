@@ -23,16 +23,16 @@ class StudentController < ApplicationController
   end
 
 
-  #
-  # get '/login' do
-  #   if logged_in?
-  #     erb :'student/login'
-  #
-  #   else
-  #     redirect '/colleges'
-  #
-  #   end
-  # end
+
+  get '/login' do
+    if logged_in?
+      erb :'student/login'
+
+    else
+      redirect '/colleges'
+
+    end
+  end
 
   post '/login' do
     applicant = Applicant.find_by(:username => params[:username])
