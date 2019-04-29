@@ -1,4 +1,4 @@
-class Student < ActiveRecord::Base
+class CreateStudents < ActiveRecord::Base
   def change
     create_table :students do |t|
       t.string :name
