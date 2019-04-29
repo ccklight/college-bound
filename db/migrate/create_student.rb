@@ -1,7 +1,7 @@
 class CreateStudents < ActiveRecord::Base
   def change
     create_table :students do |t|
-      t.string :name
+      t.string :username
       t.string :email
       t.password :password_digest
       # t.integer :gpa
