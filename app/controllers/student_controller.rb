@@ -11,7 +11,7 @@ class StudentController < ApplicationController
   end
 
 
-  post '/registration' do # Creates 1 student
+  post '/registration' dox
     if params[:username] == "" || params[:email] == "" || params[:password] == ""
       redirect 'student/registration'
     else

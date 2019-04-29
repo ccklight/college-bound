@@ -1,5 +1,5 @@
 require './config/environment'
-require_relative './student'
+
 
 class ApplicationController < Sinatra::Base
 
