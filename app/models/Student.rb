@@ -1,7 +1,7 @@
-class Student < ActiveRecord::Base
+class Student < ActiveRecord::Migration
     has_many :colleges
 
-  has_secure_password
+    has_secure_password
 
   def slug
     username.downcase.gsub("","-")
