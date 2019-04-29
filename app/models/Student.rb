@@ -1,4 +1,4 @@
-class Student < ActiveRecord::Migration
+class Student < ActiveRecord::Base
     has_many :colleges
 
     has_secure_password
