@@ -1,5 +1,5 @@
 require_relative '../config/environment'
-# require '../config/environment'
+
 ENV['SINATRA_ENV'] ||= "development"
 
 require 'bundler/setup'

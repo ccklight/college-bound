@@ -29,7 +29,7 @@ class StudentController < ApplicationController
       erb :'show'
 
     else
-      redirect '/registration'
+      redirect 'student/registration'
 
     end
   end
@@ -40,9 +40,10 @@ class StudentController < ApplicationController
       session[:applicant_id] = applicant.id
       redirect '/colleges'
     else
-      redirect '/registration'
+      redirect 'student/registration'
     end
   end
+
 
 
 
