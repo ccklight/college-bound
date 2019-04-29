@@ -4,7 +4,7 @@ class StudentController < ApplicationController
 
   get '/registration' do
     if !logged_in?
-      redirect '/registration'
+      erb :'registration'
     else
       redirect '/colleges'
     end
@@ -13,7 +13,7 @@ class StudentController < ApplicationController
 
   post '/registration' do # Creates 1 student
     if params[:username] == "" || params[:email] == "" || params[:password] == ""
-      redirect to 'student/registration'
+      redirect 'registration'
     else
       @student = Student.new(:username => params[:username], :email => params[:email], :password => params[:password])
       @student.save
