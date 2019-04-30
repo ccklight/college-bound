@@ -1,4 +1,5 @@
 require './config/environment'
+
 class StudentController < ApplicationController
 
 
@@ -15,7 +16,7 @@ class StudentController < ApplicationController
     if params[:username] == "" || params[:email] == "" || params[:password] == ""
       redirect 'student/registration'
     else
-# binding.pry
+binding.pry
       @student = Student.new(:username => params[:username], :email => params[:email], :password => params[:password])
       # @student = Student.new(username: params['username'], email: params['email'], password: params['password'])
       @student.save
