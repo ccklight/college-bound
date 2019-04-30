@@ -4,11 +4,11 @@ class Student < ActiveRecord::Base
       t.string :username
       t.string :email
       t.password :password_digest
-      # t.integer :gpa
-      # t.string :academic_interest
-      # t.string :athletic_interest
-      # t.string :hobbies
-      # t.string :awards
+      t.integer :gpa
+      t.string :academic_interest
+      t.string :athletic_interest
+      t.string :hobbies
+      t.string :awards
 
       t.timestamps null: false
     end
