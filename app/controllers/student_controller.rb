@@ -15,8 +15,8 @@ class StudentController < ApplicationController
     if params[:username] == "" || params[:email] == "" || params[:password] == ""
       redirect 'student/registration'
     else
-      @student = Student.new(:username => params[:username], :email => params[:email], :password => params[:password])
-      # @student = Student.new(name: params['name'], email: params['email'], password: params['password']
+      # @student = Student.new(:username => params[:username], :email => params[:email], :password => params[:password])
+      @student = Student.new(name: params['name'], email: params['email'], password: params['password'])
       @student.save
       session[:student_id] = @student_id
       redirect  '/colleges/layout'
@@ -36,20 +36,14 @@ class StudentController < ApplicationController
 
 
   post '/login' do
-    applicant = Applicant.find_by(:username => params[:username])
-    if applicant && user.authenticate(params[:password])
-      session[:applicant_id] = applicant.id
+    student = Student.find_by(:username => params[:username])
+    if student && student.authenticate(params[:password])
+      session[:student_id] = student.id
       redirect '/colleges'
     else
       redirect 'student/registration'
     end
   end
-
-
-
-
-
-
 
 
 end
