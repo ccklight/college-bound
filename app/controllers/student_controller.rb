@@ -15,8 +15,9 @@ class StudentController < ApplicationController
     if params[:username] == "" || params[:email] == "" || params[:password] == ""
       redirect 'student/registration'
     else
-      # @student = Student.new(:username => params[:username], :email => params[:email], :password => params[:password])
-      @student = Student.new(name: params['name'], email: params['email'], password: params['password'])
+# binding.pry
+      @student = Student.new(:username => params[:username], :email => params[:email], :password => params[:password])
+      # @student = Student.new(username: params['username'], email: params['email'], password: params['password'])
       @student.save
       session[:student_id] = @student_id
       redirect  '/colleges/layout'

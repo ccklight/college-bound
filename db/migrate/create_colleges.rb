@@ -1,4 +1,4 @@
-class CreateColleges < ActiveRecord::Base
+class Colleges < ActiveRecord::Base
   def change
     create_table :colleges do |t|
       t.string :name
@@ -8,9 +8,9 @@ class CreateColleges < ActiveRecord::Base
       t.string :grant
       t.string :major
       t.string :athletics
-      t. string :extracurriculars
+      t.string :extracurriculars
 
-      t.timestamps null: false  
+      t.timestamps null: false
     end
   end
 end

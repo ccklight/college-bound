@@ -1,5 +1,5 @@
 
-class CreateStudent < ActiveRecord::Base
+class Student < ActiveRecord::Base
     has_many :colleges
 
     has_secure_password
