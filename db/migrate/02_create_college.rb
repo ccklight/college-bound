@@ -9,8 +9,16 @@ class CreateCollege < ActiveRecord::Migration
       # t.string :major
       # t.string :athletics
       # t.string :extracurriculars
-#IMPORTANT: Remember to add student id
+
+
       t.timestamps null: false
     end
   end
 end
+
+
+#IMPORTANT: Remember to add student id
+#  def change
+ #  add_column :colleges, :student_id, :integer
+#   end
+# end
