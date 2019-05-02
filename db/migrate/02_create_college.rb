@@ -4,12 +4,12 @@ class CreateCollege < ActiveRecord::Migration
       t.string :name
       t.string :selectivity
       t.string :region
-      t.integer :tuition
-      t.string :grant
-      t.string :major
-      t.string :athletics
-      t.string :extracurriculars
-#add student id 
+      # t.integer :tuition
+      # t.string :grant
+      # t.string :major
+      # t.string :athletics
+      # t.string :extracurriculars
+#IMPORTANT: Remember to add student id
       t.timestamps null: false
     end
   end
