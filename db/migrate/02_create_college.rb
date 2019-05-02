@@ -9,7 +9,7 @@ class CreateCollege < ActiveRecord::Migration
       t.string :major
       t.string :athletics
       t.string :extracurriculars
-
+#add student id 
       t.timestamps null: false
     end
   end
