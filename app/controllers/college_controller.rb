@@ -15,14 +15,21 @@ class CollegeController < ApplicationController
   end
 
 
+  get '/colleges' do
+
+# Code this 
+  end
+
   post '/colleges' do
+binding.pry
     if logged_in?
+
       if params[:id] == ""
         redirect '/college/new'
       else
           @college = College.create(params[:id])
           @college.save
-      redirect to '/colleges/show'
+      redirect to '/college/show'
     # else
     #   redirect
     #   'students/login'

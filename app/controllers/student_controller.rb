@@ -21,13 +21,13 @@ class StudentController < ApplicationController
       # @student = Student.new(username: params['username'], email: params['email'], password: params['password'])
       @student.save
       session[:student_id] = @student_id
-      redirect  '/colleges/layout'
+      redirect  '/colleges'
       end
   end
 
   get '/login' do
     if logged_in?
-      erb :'colleges/layout'
+      erb :'/colleges'
 
     else
       "Hello World"
