@@ -1,2 +1,10 @@
 <!-- Devise way of displaying just the User's colleges
 Use Helper methods -->
+<h2> List of Colleges</h2>
+
+<form method='post' action='/colleges'
+<input id='hidden' type= 'hidden' name= '_method' value="PATCH">
+<input type='text' name= 'college' value='<%=@college%>'>
+<input type='submit' value='submit'>
+
+</form>
