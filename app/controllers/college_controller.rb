@@ -10,19 +10,23 @@ class CollegeController < ApplicationController
     if logged_in?
       erb :'colleges/create_college'
     else
-      redirect  '/login'
+      redirect '/login'
     end
   end
 
 
   post '/colleges' do
     if logged_in?
-#Correct Line 21 params syntax
-      @college = College.create([:params])
+      if params[:id] == ""
+        redirect '/college/new'
+      else
+          @college = College.create(params[:id])
+          @college.save
       redirect to '/colleges/show'
-    else
-      redirect
-      'students/login'
+    # else
+    #   redirect
+    #   'students/login'
+      end
     end
   end
 
