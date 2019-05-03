@@ -16,8 +16,8 @@ class CollegeController < ApplicationController
 
 
   get '/colleges' do
-
-# Code this 
+    erb :'/colleges/index' 
+# Code this
   end
 
   post '/colleges' do
