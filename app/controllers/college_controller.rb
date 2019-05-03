@@ -17,10 +17,13 @@ class CollegeController < ApplicationController
 
   post '/colleges' do
     if logged_in?
-      redirect to 'students/login'
+#Correct Line 21 params syntax
+      @college = College.create([:params])
+      redirect to '/colleges/show'
     else
-      redirect '/colleges/show'
-    end 
+      redirect
+      'students/login'
+    end
   end
 
 
