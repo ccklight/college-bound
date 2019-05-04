@@ -76,7 +76,7 @@ class CollegeController < ApplicationController
    @college.region = params[:region]
    @college.selectivity = params[:selectivity]
    @college.save
-   redirect "/colleges/#{@college.id}"
+    redirect "/colleges/#{@college.id}"
  end
 
 
