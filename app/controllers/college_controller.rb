@@ -6,19 +6,23 @@ class CollegeController < ApplicationController
     erb :welcome
   end
 
-  get '/colleges/new' do
-    if logged_in?
-      erb :'colleges/create_college'
-    else
-      redirect '/login'
-    end
-  end
-
 
   get '/colleges' do
     erb :'/colleges/index'
 # Code this
   end
+
+
+
+  get '/colleges/new' do
+    if logged_in?
+      erb :'colleges/new'
+    else
+      redirect '/student/login'
+    end
+  end
+
+
 
   post '/colleges' do
 # binding.pry
