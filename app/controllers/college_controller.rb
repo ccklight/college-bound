@@ -8,26 +8,23 @@ class CollegeController < ApplicationController
 
 
   get '/colleges' do
-    erb :'/colleges/index'
-# Code this
+    @colleges = College.all
+    erb :colleges/index
   end
-
 
 
   get '/colleges/new' do
     if logged_in?
-      erb :'colleges/new'
+      erb :colleges/new
     else
       redirect '/student/login'
     end
   end
 
 
-
-  post '/colleges' do
-# binding.pry
+  post '/colleges' do  #creates a college
+    # binding.pry
     if logged_in?
-
       if params[:id] == ""
         redirect '/college/new'
       else
@@ -35,45 +32,61 @@ class CollegeController < ApplicationController
           @college.save
       redirect to '/college/show'
     # else
-    #   redirect
-    #   'students/login'
+    #   redirect 'students/login'
+
+    # post '/recipes' do
+   #   @recipe = Recipe.create(params)
+   #   redirect to "/recipes/#{@recipe.id}"
+   # end
+
       end
     end
   end
 
+  get '/colleges/:id' do
+    if logged_in?
+      @college = College.find_by_id(params[:id])
+      erb :colleges/show
+    else
+      redirect '/login'
+    end
+  end
 
 
-  # get '/colleges/:id' do
-  #   if logged_in?
-  #     @college = College.find_by_id(params[:id])
-  #     erb :'colleges/show_college'
-  #   else
-  #     redirect to '/login'
-  #   end
-  # end
-  #
-  #
-  # get '/colleges/:id/edit' do
-  #   if logged_in?
-  #     @college = College.find_by_id(params[:id])
-  #
-  #   if @college && @college.student == current_student
-  #     erb :'colleges/edit_college'
-  #   else
-  #     redirect '/colleges'
-  #   end
-  #   else
-  #   redirect '/login'
-  #   end
-  # end
-  #
-  # end
+  get '/colleges/:id/edit' do #loads edit form
+    if logged_in?
+      @college = College.find_by_id(params[:id])
 
-  #
-  # put '/colleges/:id' do
-  #
-  # end
-  #
-  # delete '/colleges/:id' do
-  #
+    if @college && @college.student == current_student
+      erb :colleges/edit
+    else
+      redirect '/colleges'
+    end
+    else
+    redirect '/login'
+    end
+  end
+
+  end
+
+
+  patch '/colleges/:id' do  #updates a college
+   @college = College.find_by_id(params[:id])
+   @college.name = params[:name]
+   @college.region = params[:region]
+   @college.selectivity = params[:selectivity]
+   @college.save
+   redirect "/colleges/#{@college.id}"
+ end
+
+
+ delete '/colleges/:id' do #destroy action
+   @college = College.find_by_id(params[:id])
+   @college.delete
+   redirect '/colleges'
+ end
+
+ end
+
+
 end

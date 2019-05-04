@@ -2,7 +2,6 @@ require './config/environment'
 
 class StudentController < ApplicationController
 
-
   get '/registration' do
     if !logged_in?
       erb :'/student/registration'
@@ -10,7 +9,6 @@ class StudentController < ApplicationController
       redirect '/index'
     end
   end
-
 
   post '/registration' do
     if params[:username] == "" || params[:email] == "" || params[:password] == ""
@@ -33,10 +31,6 @@ class StudentController < ApplicationController
   end
   end
 
-
-
-
-
   post '/login' do
     student = Student.find_by(:username => params[:username])
     if student && student.authenticate(params[:password])
@@ -46,6 +40,5 @@ class StudentController < ApplicationController
       redirect 'student/registration'
     end
   end
-
 
 end
