@@ -25,9 +25,9 @@ class StudentController < ApplicationController
 
   get '/login' do
   if logged_in?
-    erb :'/college/new'
+    erb :'/student/login'
   else
-    redirect '/student/login'
+    redirect '/student/registration'
   end
   end
 

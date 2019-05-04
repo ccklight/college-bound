@@ -64,17 +64,16 @@ class CollegeController < ApplicationController
     end
     else
     redirect '/login'
+        end
+  
     end
-  end
 
-  end
 
 
   patch '/colleges/:id' do  #updates a college
    @college = College.find_by_id(params[:id])
    @college.name = params[:name]
    @college.region = params[:region]
-   @college.selectivity = params[:selectivity]
    @college.save
     redirect "/colleges/#{@college.id}"
  end
@@ -84,8 +83,6 @@ class CollegeController < ApplicationController
    @college = College.find_by_id(params[:id])
    @college.delete
    redirect '/colleges'
- end
-
  end
 
 

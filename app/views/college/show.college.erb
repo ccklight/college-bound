@@ -1,16 +1,15 @@
-:::::::/,≥≥≥≥≥≥≥≥≥≥≥≥≥≥≥≥≥≥≥≥≥≥≥≥≥≥≥≥≥≥≥≥≥≥≥≥≥≥≥≥≥≥≥≥≥≥≥≥≥≥≥≥≥≥≥≥≥≥≥≥≥≥≥≥≥≥≥≥≥≥≥≥≥≥≥≥≥≥≥≥≥≥≥≥≥≥≥≥≥≥≥≥≥≥≥≥≥≥≥≥≥≥≥≥≥≥≥≥≥≥≥≥≤≥≥≥≥
-    <%= college.content %>
+
+  <%= college.content %>
   </div>
 
-<%end%>
+# <%end%>
 
-**********
-Name: <%= @recipe.name %>
-Ingredients: <%= @recipe.ingredients %>
-Cook time: <%= @recipe.cook_time %>
 
-<form method="POST" action="/recipes/<%=@recipe.id%>">
-  <input type="hidden" name="_method" value="DELETE" />
-  <input type="submit" value="delete" />
+Name: <%= @college.name %>
+Region: <%= @college.region %>
+
+<form method='POST' action='/colleges/<%=@college.id%>'>
+  <input type='hidden' name='_method' value='DELETE'/>
+  <input type='submit' value='delete'/>
 </form>
-***********
+<a href="/colleges/<%=@college.id%>/edit">Edit College</a>

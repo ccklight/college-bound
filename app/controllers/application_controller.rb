@@ -14,6 +14,15 @@ class ApplicationController < Sinatra::Base
   end
 
 
+  #
+  # get '/student/login' do
+  #     "Hello World, Hello Everyone!"
+  #   end
+
+
+
+
+
   helpers do
     def logged_in?
       !!current_student

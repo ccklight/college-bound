@@ -6,4 +6,3 @@ end
   def change
     add_column :colleges, :student_id, :integer
   end
-end
