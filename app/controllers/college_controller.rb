@@ -16,12 +16,12 @@ class CollegeController < ApplicationController
 
 
   get '/colleges' do
-    erb :'/colleges/index' 
+    erb :'/colleges/index'
 # Code this
   end
 
   post '/colleges' do
-binding.pry
+# binding.pry
     if logged_in?
 
       if params[:id] == ""
