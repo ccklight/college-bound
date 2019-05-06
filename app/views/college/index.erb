@@ -2,7 +2,7 @@
 Use Helper methods -->
 <h2> List of Colleges</h2>
 
-# <% @colleges.each do |college|%>
+ <% @colleges.each do |college|%>
 
     <a href="/colleges/<%= college.id %>">Name: <%= college.name %></a>
     Name: <%= college.name %>
@@ -10,7 +10,7 @@ Use Helper methods -->
 
 # <% end %>
 
-<form method='post' action='/colleges'
+<form  action='/colleges' method='post'>
 <input id='hidden' type= 'hidden' name= '_method' value='PATCH'>
 <input type='text' name= 'college' value='<%=@college%>'>
 <input type='submit' value='submit'>

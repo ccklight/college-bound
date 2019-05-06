@@ -1,14 +1,23 @@
+<!-- This is the General index.erb -->
 <h1>College Bound List</h1>
 
-<form action='/' method='post'>
+<form action='/colleges' method='post'>
 
   <!-- <textarea name="user_text"></textarea> -->
   <br>
+
+  <form  action='/colleges' method='post'>
+  <input id='hidden' type= 'hidden' name= '_method' value='PATCH'>
+  <input type='text' name= 'college' value='<%=@college%>'>
+  <input type='submit' value='submit'>
+
+
+
   <button type='submit' value='submit'>Submit</button>
 </form>
 
 
-<!-- <ul>
+<ul>
 <% @colleges.each do |college|%>
   <li>
     <a href="/colleges/<%= college.id %>">Name: <%= college.name %></a>
@@ -16,4 +25,4 @@
     Region: <%= college.region %>
   </li>
 <% end %>
-</ul> -->
+</ul>
