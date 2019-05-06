@@ -2,10 +2,7 @@ require './config/environment'
 
 class CollegeController < ApplicationController
 
-  get '/' do
-    erb :welcome
-  end
-
+  
 
   get '/colleges' do
     @colleges = College.all
@@ -26,9 +23,9 @@ class CollegeController < ApplicationController
     # binding.pry
     if logged_in?
       if params[:id] == ""
-        redirect '/college/new'
+        redirect '/colleges/new'
       else
-          @college = College.create(params[:id])
+          @colleges = College.create(params[:id])
           @college.save
       redirect to '/college/show'
     # else
@@ -53,14 +50,14 @@ class CollegeController < ApplicationController
   end
 
 
-  get '/colleges/:id/edit' do #loads edit form
+  get '/college/:id/edit' do #loads edit form
     if logged_in?
       @college = College.find_by_id(params[:id])
 
     if @college && @college.student == current_student
-      erb :'colleges/edit'
+      erb :'college/edit'
     else
-      redirect '/colleges'
+      redirect '/college'
     end
     else
     redirect '/login'
@@ -70,19 +67,19 @@ class CollegeController < ApplicationController
 
 
 
-  patch '/colleges/:id' do  #updates a college
+  patch '/college/:id' do  #updates a college
    @college = College.find_by_id(params[:id])
    @college.name = params[:name]
    @college.region = params[:region]
    @college.save
-    redirect "/colleges/#{@college.id}"
+    redirect "/college/#{@college.id}"
  end
 
 
- delete '/colleges/:id' do #destroy action
+ delete '/college/:id' do #destroy action
    @college = College.find_by_id(params[:id])
    @college.delete
-   redirect '/colleges'
+   redirect '/college'
  end
 
 
