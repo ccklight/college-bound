@@ -16,3 +16,19 @@ Use Helper methods -->
 <input type='submit' value='submit'>
 
 </form>
+***********
+App/views/artists/index.erb (this is specific index)
+1.
+<% @artists.each do |artist| %>
+  <li> <a href="/artists/<%= artist.slug %>"> <%= artist.name %> </a></li>
+<% end %>
+
+2. (Specific Index---app/views/genres/index.erb
+<% @genres.each do |genre| %>
+  <li><a href="/genres/<%= genre.slug %>"> <%= genre.name %></a></li>
+<% end %>
+
+3.Specific Index--app/views/songs/index.erb
+<% @songs.each do |song| %>
+  <li> <a href="/songs/<%= song.slug %>"> <%= song.name %> </a></li>
+<% end %>
