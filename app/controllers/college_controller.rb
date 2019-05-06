@@ -9,7 +9,7 @@ class CollegeController < ApplicationController
 
   get '/colleges' do
     @colleges = College.all
-    erb :'colleges/index'
+    erb :'index' #This'index' is the "General Index"
   end
 
 
@@ -35,8 +35,8 @@ class CollegeController < ApplicationController
     #   redirect 'students/login'
 
     # post '/recipes' do
-   #   @recipe = Recipe.create(params)
-   #   redirect to "/recipes/#{@recipe.id}"
+   #   @college = College.create(params)
+   #   redirect  "/colleges/#{@college.id}"
    # end
 
       end
