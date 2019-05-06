@@ -4,7 +4,7 @@ class StudentController < ApplicationController
 
   get '/registration' do
     if !logged_in?
-      erb :'/student/registration'
+      erb :'student/registration'
     else
       redirect '/college/create'
     end
@@ -12,7 +12,7 @@ class StudentController < ApplicationController
 
   post '/registration' do
     if params[:username] == "" || params[:email] == "" || params[:password] == ""
-      redirect 'student/registration'
+      redirect '/student/registration'
     else
 # binding.pry
       @student = Student.new(:username => params[:username], :email => params[:email], :password => params[:password])
@@ -25,11 +25,12 @@ class StudentController < ApplicationController
 
   get '/login' do
   if logged_in?
-    erb :'/student/login'
+    erb :'college/create'
   else
     redirect '/student/registration'
   end
   end
+
 
   post '/login' do
     student = Student.find_by(:username => params[:username])

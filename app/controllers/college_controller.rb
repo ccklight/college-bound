@@ -9,13 +9,13 @@ class CollegeController < ApplicationController
 
   get '/colleges' do
     @colleges = College.all
-    erb :colleges/index
+    erb :'colleges/index'
   end
 
 
   get '/colleges/new' do
     if logged_in?
-      erb :colleges/new
+      erb :'colleges/new'
     else
       redirect '/student/login'
     end
@@ -46,7 +46,7 @@ class CollegeController < ApplicationController
   get '/colleges/:id' do
     if logged_in?
       @college = College.find_by_id(params[:id])
-      erb :colleges/show
+      erb :'colleges/show'
     else
       redirect '/login'
     end
@@ -58,14 +58,14 @@ class CollegeController < ApplicationController
       @college = College.find_by_id(params[:id])
 
     if @college && @college.student == current_student
-      erb :colleges/edit
+      erb :'colleges/edit'
     else
       redirect '/colleges'
     end
     else
     redirect '/login'
         end
-  
+
     end
 
 

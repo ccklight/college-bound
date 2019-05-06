@@ -10,18 +10,13 @@ class ApplicationController < Sinatra::Base
   end
 
   get '/' do
-    erb :index
+    erb :'index'
   end
-
 
 
   get '/student/login' do
       "Hello World, Hello Everyone!"
-    end
-
-
-
-
+  end
 
   helpers do
     def logged_in?
