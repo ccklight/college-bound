@@ -6,7 +6,7 @@ class StudentController < ApplicationController
     if !logged_in?
       erb :'/student/registration'
     else
-      redirect '/index'
+      redirect '/college/create'
     end
   end
 
