@@ -34,7 +34,7 @@ class StudentController < ApplicationController
   end
 
 
-  post '/student/login' do
+  post '/login' do
     @student = Student.find_by(:username => params[:username])
     if student && student.authenticate(params[:password])
       session[:student_id] = student.id
