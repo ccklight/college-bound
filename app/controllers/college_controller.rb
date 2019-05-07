@@ -2,32 +2,32 @@ require './config/environment'
 
 class CollegeController < ApplicationController
 
-  
+
 
   get '/colleges' do
     @colleges = College.all
-    erb :'index' #This'index' is the "General Index"
+    erb :index #This'index' is the "General Index"
   end
 
 
-  get '/colleges/new' do
+  get '/college/new' do
     if logged_in?
-      erb :'colleges/new'
+      erb :create
     else
       redirect '/student/login'
     end
   end
 
 
-  post '/colleges' do  #creates a college
+  post '/college' do  #creates a college
     # binding.pry
     if logged_in?
       if params[:id] == ""
-        redirect '/colleges/new'
+        redirect '/create'
       else
-          @colleges = College.create(params[:id])
+          @college = College.create(params[:id])
           @college.save
-      redirect to '/college/show'
+      redirect '/show'
     # else
     #   redirect 'students/login'
 
@@ -43,9 +43,9 @@ class CollegeController < ApplicationController
   get '/colleges/:id' do
     if logged_in?
       @college = College.find_by_id(params[:id])
-      erb :'colleges/show'
+      erb :show
     else
-      redirect '/login'
+      redirect '/student/login'
     end
   end
 
@@ -55,13 +55,13 @@ class CollegeController < ApplicationController
       @college = College.find_by_id(params[:id])
 
     if @college && @college.student == current_student
-      erb :'college/edit'
+      erb :edit
     else
-      redirect '/college'
+      redirect '/student/login'
     end
-    else
-    redirect '/login'
-        end
+    # else
+    # redirect '/login'
+    #     end
 
     end
 
@@ -79,7 +79,7 @@ class CollegeController < ApplicationController
  delete '/college/:id' do #destroy action
    @college = College.find_by_id(params[:id])
    @college.delete
-   redirect '/college'
+   redirect '/'
  end
 
 
