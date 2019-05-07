@@ -4,9 +4,9 @@ class StudentController < ApplicationController
 
   get '/registration' do
     if !logged_in?
-      erb :'student/registration'
+      erb :registration
     else
-      redirect '/college'
+      redirect '/student/login'
     end
   end
 
@@ -27,7 +27,7 @@ class StudentController < ApplicationController
 
   get '/login' do
   if logged_in?
-    erb :'college'
+    erb :login
   else
     redirect '/student/registration'
   end
