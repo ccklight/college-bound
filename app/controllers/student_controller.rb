@@ -6,7 +6,7 @@ class StudentController < ApplicationController
     if !logged_in?
       erb :registration
     else
-      redirect '/college/create'
+      redirect '/index'
     end
   end
 
@@ -27,10 +27,10 @@ class StudentController < ApplicationController
 
   get '/login' do
   if logged_in?
-    erb :college/create
+    erb :index
   else
-    redirect '/student/registration'
-  end
+    redirect '/registration'
+    end
   end
 
 
@@ -40,14 +40,14 @@ class StudentController < ApplicationController
       session[:student_id] = student.id
       redirect '/college/create'
     else
-      redirect '/student/registration'
+      redirect '/registration'
     end
   end
 
 
   get '/student/logout' do
       session.clear
-      redirect '/student/logout'
+      redirect '/logout'
     end
 
 
