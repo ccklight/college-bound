@@ -12,7 +12,7 @@ class StudentController < ApplicationController
 
 
   post '/registration' do
-    puts params
+
     if params[:username] == "" || params[:email] == "" || params[:password] == ""
       redirect '/registration'
     else
@@ -21,6 +21,7 @@ class StudentController < ApplicationController
       # @student = Student.new(username: params['username'], email: params['email'], password: params['password'])
       @student.save
       session[:student_id] = @student.id
+      puts params
       redirect  '/login'
       end
   end
