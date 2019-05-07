@@ -6,7 +6,7 @@ class StudentController < ApplicationController
     if !logged_in?
       erb :registration
     else
-      redirect '/student/login'
+      redirect '/login'
     end
   end
 
@@ -20,16 +20,16 @@ class StudentController < ApplicationController
       # @student = Student.new(username: params['username'], email: params['email'], password: params['password'])
       @student.save
       session[:student_id] = @student.id
-      redirect  '/student/login'
+      redirect  '/login'
       end
   end
 
 
   get '/login' do
   if logged_in?
-    erb :login
+    erb :'college/create'
   else
-    redirect '/student/registration'
+    redirect '/registration'
   end
   end
 

@@ -3,7 +3,7 @@ class College < ActiveRecord::Base
 
 
   def change
-    add_column :colleges, :student_id, :integer
+    add_column :college, :student_id, :integer
   end
 
   # Make into a module def slug and def self.find_by_slug
