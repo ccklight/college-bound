@@ -29,16 +29,16 @@ class StudentController < ApplicationController
   if logged_in?
     erb :'college/create'
   else
-    redirect '/registration'
+    redirect '/student/registration'
   end
   end
 
 
   post '/student/login' do
-    student = Student.find_by(:username => params[:username])
+    @student = Student.find_by(:username => params[:username])
     if student && student.authenticate(params[:password])
       session[:student_id] = student.id
-      redirect '/colleges'
+      redirect '/colleges/create'
     else
       redirect 'student/registration'
     end
