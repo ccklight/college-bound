@@ -12,6 +12,7 @@ class StudentController < ApplicationController
 
 
   post '/registration' do
+    puts params
     if params[:username] == "" || params[:email] == "" || params[:password] == ""
       redirect '/registration'
     else
