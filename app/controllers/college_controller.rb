@@ -4,21 +4,21 @@ class CollegeController < ApplicationController
 
   get '/colleges' do
     @colleges = College.all
-    erb :index #This'index' is the "General Index"
+    erb :'college/index' #This'index' is the "General Index"
   end
 
 
   get '/college/new' do
     if logged_in?
-      erb :create
+      erb :'/college/new'
     else
-      redirect '/student/login'
+      redirect '/login'
     end
   end
 
 
   post '/college' do  #creates a college
-    # binding.pry
+    binding.pry
     if logged_in?
       if params[:id] == ""
         redirect '/create'
@@ -28,7 +28,7 @@ class CollegeController < ApplicationController
       redirect '/show'
     # else
     #   redirect 'students/login'
-
+#Update and create in Rails = post
     # post '/recipes' do
    #   @college = College.create(params)
    #   redirect  "/colleges/#{@college.id}"
@@ -53,9 +53,10 @@ class CollegeController < ApplicationController
       @college = College.find_by_id(params[:id])
 
     if @college && @college.student == current_student
-      erb :edit
+      erb :'college/edit'
     else
-      redirect '/student/login'
+      redirect '/login'
+      # Look at this: Is this where I want to go?
     end
     # else
     # redirect '/login'
