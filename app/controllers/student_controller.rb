@@ -17,7 +17,6 @@ class StudentController < ApplicationController
     else
 # binding.pry
       @student = Student.new(:username => params[:username], :email => params[:email], :password => params[:password])
-      # @student = Student.new(username: params['username'], email: params['email'], password: params['password'])
       @student.save
       session[:student_id] = @student.id
       puts params
@@ -49,9 +48,6 @@ class StudentController < ApplicationController
   get '/logout' do
       session.clear
       erb :'/student/logout'
-    end
-
-
-
+  end
 
 end

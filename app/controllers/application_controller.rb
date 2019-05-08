@@ -22,7 +22,6 @@ class ApplicationController < Sinatra::Base
 
 
     def current_student
-
       @current_student ||= Student.find_by(id: session[:student_id]) if session[:student_id]
     end
   end
