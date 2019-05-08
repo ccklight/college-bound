@@ -28,8 +28,8 @@ class StudentController < ApplicationController
 
 
   get '/login' do
-  if logged_in?
-    erb :index
+  if !logged_in?
+    erb :'student/login'
   else
     redirect '/registration'
     end

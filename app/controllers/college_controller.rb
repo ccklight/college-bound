@@ -61,7 +61,7 @@ class CollegeController < ApplicationController
     end
     # else
     # redirect '/login'
-    #     end
+        end
 
     end
 
