@@ -2,8 +2,6 @@ require './config/environment'
 
 class CollegeController < ApplicationController
 
-
-
   get '/colleges' do
     @colleges = College.all
     erb :index #This'index' is the "General Index"

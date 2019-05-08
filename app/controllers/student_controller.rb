@@ -12,7 +12,6 @@ class StudentController < ApplicationController
 
 
   post '/registration' do
-
     if params[:username] == "" || params[:email] == "" || params[:password] == ""
       redirect '/registration'
     else
@@ -22,7 +21,7 @@ class StudentController < ApplicationController
       @student.save
       session[:student_id] = @student.id
       puts params
-      redirect  '/login'
+      redirect  '/student/login'
       end
   end
 
@@ -31,7 +30,7 @@ class StudentController < ApplicationController
   if !logged_in?
     erb :registration
   else
-    redirect '/login'
+    redirect '/student/login'
     end
   end
 
@@ -42,7 +41,7 @@ class StudentController < ApplicationController
       session[:student_id] = student.id
       redirect '/college/create'
     else
-      redirect '/login'
+      redirect '/student/login'
     end
   end
 
