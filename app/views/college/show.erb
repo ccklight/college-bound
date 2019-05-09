@@ -1,15 +1,29 @@
-
-  <%= college.content %>
-  </div>
-
-<%end%>
+<form method='POST' action="/college/<%=@college.id%>">
 
 
-Name: <%= @college.name %>
-Region: <%= @college.region %>
+  <% College.all.each do |college| %>
 
-<form method='POST' action='/colleges/<%=@college.id%>'>
-  <input type='hidden' name='_method' value='DELETE'/>
-  <input type='submit' value='delete'/>
+  <input id="<%= college.name %>" type="checkbox" name="colleges[]" value="<%= college.id %>">
+    <p><input type='hidden' name='_method' value='DELETE'/></p>
+    <p><input type='hidden' name='_method' value='EDIT'/></p>
+    <p><input type='submit' value='submit'/></p>
+
+  <a href="/colleges/<%=@college.id%>/edit">Edit College</a>
+
+  Name: <%= @college.name %>
+  Region: <%= @college.region %>
+
+  <!-- OR This: <p><input type='submit' value='delete'/></p> -->
+
+  <a class="button" href="/colleges/<%= @college.id %>/edit">Edit</a>
+  <a class="button" href="/colleges">Colleges #1 views/college/show</a>
+  <a class="button" href="/">The College #2 views/college/show</a>
+  <a class="button" href="/landmarks">View Colleges #3 views/college/show</a>
+
 </form>
-<a href="/colleges/<%=@college.id%>/edit">Edit College</a>
+
+
+<!-- <a href="/figures/<%= @figure.id %>"><%= @figure.name %></a> -->
+ <!-- <%@figure.landmarks.each do |landmark|%> -->
+ <!-- <li><%=landmark.name%></li> -->
+ <!-- <%end%> -->

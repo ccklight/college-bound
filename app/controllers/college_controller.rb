@@ -21,21 +21,22 @@ class CollegeController < ApplicationController
     # binding.pry
     if logged_in?
       if params[:id] == ""
-        redirect '/create'
+        redirect '/new'
       else
           @college = College.create(params[:id])
           @college.save
-      redirect '/show'
-    # else
-    #   redirect 'students/login'
-#Update and create in Rails = post
-    # post '/recipes' do
-   #   @college = College.create(params)
-   #   redirect  "/colleges/#{@college.id}"
-   # end
+      redirect '/college/show'
+#     else
+#       redirect 'students/login'
+# Update and create in Rails = post
+#     post '/recipes' do
+#      @college = College.create(params)
+#      redirect  "/colleges/#{@college.id}"
+#    end
         end
       end
     end
+
 
   get '/colleges/:id' do
     if logged_in?
@@ -75,6 +76,5 @@ class CollegeController < ApplicationController
       @college.delete
       redirect '/'
     end
-
 
 end

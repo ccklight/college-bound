@@ -15,6 +15,7 @@ class ApplicationController < Sinatra::Base
   end
 
 
+
   helpers do
     def logged_in?
       !!current_student

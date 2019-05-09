@@ -8,7 +8,7 @@ class College < ActiveRecord::Base
 
   # Make into a module def slug and def self.find_by_slug
   def slug
-    username.downcase.gsub(" ","-")
+    name.downcase.gsub(" ","-")
   end
 
 
