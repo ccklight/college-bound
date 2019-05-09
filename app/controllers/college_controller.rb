@@ -18,7 +18,7 @@ class CollegeController < ApplicationController
 
 
   post '/college' do
-    binding.pry
+    # binding.pry
     if logged_in?
       if params[:id] == ""
         redirect '/create'
