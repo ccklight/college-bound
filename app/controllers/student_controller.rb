@@ -11,6 +11,7 @@ class StudentController < ApplicationController
   end
 
 
+
   post '/registration' do
     if params[:username] == "" || params[:email] == "" || params[:password] == ""
       redirect '/registration'
@@ -27,7 +28,7 @@ class StudentController < ApplicationController
 
   get '/login' do
   if !logged_in?
-    erb :'student/login'
+    erb :'/student/login'
   else
     redirect '/colleges'
     end

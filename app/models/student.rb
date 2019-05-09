@@ -4,7 +4,7 @@ class Student < ActiveRecord::Base
 
 
   def slug
-    name.downcase.gsub("","-")
+    username.downcase.gsub("","-")
   end
 
 

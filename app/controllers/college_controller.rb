@@ -2,30 +2,36 @@ require './config/environment'
 
 class CollegeController < ApplicationController
 #
-  get '/colleges' do
+  get '/college' do
     @colleges = College.all
-    erb :'college/index'
+     # Try @ college
+    erb :'colleges/index'
   end
+# Try singular college      erb :'college/index'
 
 
   get '/college/new' do
     if logged_in?
-      erb :'/college/new'
+      erb :'college/new'
     else
       redirect '/login'
     end
   end
 
 
+
   post '/college' do
-    # binding.pry
     if logged_in?
       if params[:id] == ""
         redirect '/new'
       else
-          @college = College.create(params[:id])
+          @college = College.create(params['id'])
+            # Original possily correct is @college = College.create(params[:id])
           @college.save
-      redirect '/college/show'
+      redirect '/college/:id'
+      # Try this redirect:    redirect  "/colleges/#{@college.id}"
+      # OR Try this redirect:    redirect  "/college/#{@college.id}"
+
 #     else
 #       redirect 'students/login'
 # Update and create in Rails = post
@@ -38,12 +44,15 @@ class CollegeController < ApplicationController
     end
 
 
-  get '/colleges/:id' do
+  get '/college/:id' do
+        # binding.pry
     if logged_in?
       @college = College.find_by_id(params[:id])
-      erb :show
+      # OR try this method:   @college = College.find(params[:id])
+      erb :'college/show'
+      # OR try this  plural colleges erb:   erb :'colleges/show'
     else
-      redirect '/student/login'
+      redirect '/student/registration'
     end
   end
 
@@ -51,9 +60,11 @@ class CollegeController < ApplicationController
   get '/college/:id/edit' do
     if logged_in?
       @college = College.find_by_id(params[:id])
+      # OR try this method:   @college = College.find(params[:id])
 
     if @college && @college.student == current_student
       erb :'college/edit'
+      # OR try plural colleges     erb :'colleges/edit'
     else
       redirect '/login'
       # Look at this: Is this where I want to go?
@@ -63,12 +74,16 @@ class CollegeController < ApplicationController
 
 
     patch '/college/:id' do
+      # Or try plural for route       patch '/colleges/:id' do
       @college = College.find_by_id(params[:id])
       @college.name = params[:name]
       @college.region = params[:region]
       @college.save
       redirect "/college/#{@college.id}"
+
+      OR try plural college like this:  redirect to "/colleges/#{@college.id}"
     end
+
 
 
     delete '/college/:id' do
