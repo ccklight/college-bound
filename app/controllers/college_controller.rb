@@ -47,8 +47,9 @@ class CollegeController < ApplicationController
   get '/college/:id' do
         # binding.pry
     if logged_in?
-      @college = College.find_by_id(params[:id])
-      # OR try this method:   @college = College.find(params[:id])
+      # @college = College.find_by_id(params[:id])
+      # OR try this method:
+       @college = College.find_by_id(:params[:id])
       erb :'college/show'
       # OR try this  plural colleges erb:   erb :'colleges/show'
     else
@@ -81,7 +82,7 @@ class CollegeController < ApplicationController
       @college.save
       redirect "/college/#{@college.id}"
 
-      OR try plural college like this:  redirect to "/colleges/#{@college.id}"
+      # OR try plural college like this:  redirect to "/colleges/#{@college.id}"
     end
 
 
