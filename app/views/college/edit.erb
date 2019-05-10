@@ -1,12 +1,16 @@
+<h1>Edit a College</h1>
+<h2>This is app/views/college/edit.erb</h2>
 
-<form method='POST' action='/colleges/<%=@college.id%>'>
-  <input id='hidden' type='hidden' name='_method' value='patch' />
+<form action="/colleges/<%=@college.id%>" method="POST">
+  <input id='hidden' type='hidden' name='_method' value='patch'/>
 
   <label for='name'>Name</label>
-  <input type='text' id='name' name='name' value='<%=@college.name%>'/>
+  <input type='text' id='name' name='college[name]' value='<%=@college.name%>'/>
 
   <label for='region'>Region</label>
-  <input type='text' id='region' name='region' value='<%=@college.region%>'/>
+  <input type='text' id='region' name='college[region]' value='<%=@college.region%>'/>
 
-  <input type='submit' value='submit'/>
+
+  <!-- <input type='submit' value='submit'/> -->
+  <input type="submit" value="Edit College">
 </form>

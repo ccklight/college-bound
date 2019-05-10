@@ -1,8 +1,10 @@
-<form method='POST' action="/college/<%=@college.id%>">
+<!-- <form method='POST' action="/college/<%=@college.id%>"> -->
 
 <!-- Or Try This:   <form method='POST' action='/college'> -->
+<form action="/colleges/<%=@college.id%>" method="POST">
 
-
+  <td><%= @landmark.name %></td>
+  <td><%= @landmark.year_completed %></td>
 
   <% College.all.each do |college| %>
 
@@ -10,23 +12,22 @@
     <p><input type='hidden' name='_method' value='DELETE'/></p>
     <p><input type='hidden' name='_method' value='EDIT'/></p>
     <p><input type='submit' value='submit'/></p>
-
+    <input type="submit" value="Edit College">
   <a href="/colleges/<%=@college.id%>/edit">Edit College</a>
-<!--
-  Name: <%= @college.name %>
-  Region: <%= @college.region %> -->
-
-  <!-- OR This: <p><input type='submit' value='delete'/></p> -->
-<!--
-  <a class="button" href="/colleges/<%= @college.id %>/edit">Edit</a>
-  <a class="button" href="/colleges">Colleges #1 views/college/show</a>
-  <a class="button" href="/">The College #2 views/college/show</a>
-  <a class="button" href="/landmarks">View Colleges #3 views/college/show</a> -->
 
 </form>
 <%end%>
 
+**********
 
-<!-- <a href="/figures/<%= @figure.id %>"><%= @figure.name %></a> -->
- <!-- <%@figure.landmarks.each do |landmark|%> -->
- <!-- <li><%=landmark.name%></li> -->
+  <a class="button" href="/landmarks/<%= @landmark.id %>/edit">Edit</a>
+  <a class="button" href="/landmarks">Landmarks</a>
+  <a class="button" href="/">Go Home</a>
+
+**********
+My Sinatra Lab- views/edit.erb
+<h1>Edit a new Landmark:</h1>
+
+
+
+</form>
