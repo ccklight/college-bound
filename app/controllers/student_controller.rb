@@ -21,7 +21,7 @@ class StudentController < ApplicationController
       @student.save
       session[:student_id] = @student.id
       puts params
-      redirect  '/login'
+      redirect  '/college'
       end
   end
 
@@ -30,7 +30,7 @@ class StudentController < ApplicationController
   if !logged_in?
     erb :'/student/login'
   else
-    redirect '/colleges'
+    redirect '/college'
     end
   end
 

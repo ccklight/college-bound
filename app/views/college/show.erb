@@ -5,20 +5,17 @@
 <h1> This code is in app/views/college/show.erb</h1>
 
 
-<form action="/college/:id/edit" method="POST">
+<form action="/college/<%=@college.id%>" method="POST">
 
 
-  <% College.all.each do |college| %>
 
+  <input id="<%= @college.name %>" type="checkbox" name="colleges[]" value="<%= @college.id %>">
+    <!-- <p><input type='hidden' name='_method' value='DELETE'/></p> -->
 
-  <input id="<%= college.name %>" type="checkbox" name="colleges[]" value="<%= college.id %>">
-    <p><input type='hidden' name='_method' value='DELETE'/></p>
-    <p><input type='hidden' name='_method' value='EDIT'/></p>
     <p><input type='hidden' name='_method' value='PATCH'/></p>
     <p><input type='submit' value='submit'/></p>
     <input type="submit" value="Edit a College">
-    <input type="submit" value="Delete a College">
-
-
 </form>
-<%end%>
+
+
+<!-- Per JP, move this show.erb form to my college/edit.erb file . I still need show.erb -->

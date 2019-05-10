@@ -2,7 +2,7 @@ require './config/environment'
 
 class CollegeController < ApplicationController
 #
-  get '/college' do
+  get '/colleges' do
     @college = College.all
      # Try @ college
     erb :'college/index'
@@ -27,7 +27,7 @@ class CollegeController < ApplicationController
       else
           @college = College.create(params[:id])
           @college.save
-        redirect '/college/show'
+        redirect "/college/#{@college.id}"
 
 
 #     else
