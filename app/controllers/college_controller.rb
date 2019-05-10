@@ -4,7 +4,6 @@ class CollegeController < ApplicationController
 #
   get '/colleges' do
     @college = College.all
-     # Try @ college
     erb :'college/index'
   end
 # Try singular college      erb :'college/index'
