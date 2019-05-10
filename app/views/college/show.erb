@@ -1,5 +1,8 @@
 <form method='POST' action="/college/<%=@college.id%>">
 
+<!-- Or Try This:   <form method='POST' action='/college'> -->
+
+
 
   <% College.all.each do |college| %>
 
@@ -21,9 +24,9 @@
   <a class="button" href="/landmarks">View Colleges #3 views/college/show</a> -->
 
 </form>
+<%end%>
 
 
 <!-- <a href="/figures/<%= @figure.id %>"><%= @figure.name %></a> -->
  <!-- <%@figure.landmarks.each do |landmark|%> -->
  <!-- <li><%=landmark.name%></li> -->
- <!-- <%end%> -->

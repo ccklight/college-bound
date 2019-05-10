@@ -25,10 +25,10 @@ class CollegeController < ApplicationController
       if params[:id] == ""
         redirect '/new'
       else
-          @college = College.create(params['id'])
+          @college = College.create(params[:id])
             # Original possily correct is @college = College.create(params[:id])
           @college.save
-      redirect '/college/:id'
+        redirect '/college/:id'
       # Try this redirect:    redirect  "/colleges/#{@college.id}"
       # OR Try this redirect:    redirect  "/college/#{@college.id}"
 
@@ -47,11 +47,9 @@ class CollegeController < ApplicationController
   get '/college/:id' do
         # binding.pry
     if logged_in?
-      # @college = College.find_by_id(params[:id])
-      # OR try this method:
-       @college = College.find_by_id(:params[:id])
-      erb :'college/show'
-      # OR try this  plural colleges erb:   erb :'colleges/show'
+       @college = College.find_by_id(params[:id])
+      erb :show
+
     else
       redirect '/student/registration'
     end
@@ -64,7 +62,7 @@ class CollegeController < ApplicationController
       # OR try this method:   @college = College.find(params[:id])
 
     if @college && @college.student == current_student
-      erb :'college/edit'
+      erb :edit
       # OR try plural colleges     erb :'colleges/edit'
     else
       redirect '/login'
