@@ -1,16 +1,26 @@
+
+<h1>This Edit Form Should Render Single College to Edit </h1>
+<h1> This code is in app/views/college/edit.erb</h1>
+
 <h1>Edit a College</h1>
-<h2>This is app/views/college/edit.erb</h2>
 
-<form action="/colleges/<%=@college.id%>" method="POST">
-  <input id='hidden' type='hidden' name='_method' value='patch'/>
+<form action="/college/<%=@college.id%>" method="POST">
 
-  <label for='name'>Name</label>
-  <input type='text' id='name' name='college[name]' value='<%=@college.name%>'/>
+  <input id='hidden' type='hidden' name='_method' value='PATCH'>
+    <label for='region'>Region</label>
+    <input type='text' id='region' name='region' value='<%=@college.region%>'>
 
-  <label for='region'>Region</label>
-  <input type='text' id='region' name='college[region]' value='<%=@college.region%>'/>
+    <label for='name'>Name</label>
+    <input type='text' id='name' name='name' value='<%=@college.name%>'>
+
+    <input type='submit' value='submit'>
+    <input type="submit" value="Edit a College">
 
 
-  <!-- <input type='submit' value='submit'/> -->
-  <input type="submit" value="Edit College">
+  <p><input type='hidden' type='hidden' name='_method' value='DELETE'/></p>
+    <input type="submit" value="Delete a College">
+
+
+  <input  type="checkbox"  id="<%= @college.name%>" name="colleges[]" value="<%= @college.id %>">
+
 </form>

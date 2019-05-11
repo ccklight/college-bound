@@ -1,21 +1,14 @@
+<h1>This is views/college/SHOW</h1>
+<h2></h2>
 
-<h1>Your Single College</h1>
-<h2>This Should Display A Single  College-Show Action</h2>
-<h1> This is get 'colleges/:id'</h1>
-<h1> This code is in app/views/college/show.erb</h1>
+<p><%=@college.name%></p>
+<p><%=@college.region%></p>
 
+  <form method='post' action='/college/<%@college.id%>/delete'>
+    <!-- <form method='post' action='/college/:id/delete'> -->
 
-<form action="/college/<%=@college.id%>" method="POST">
+    <input id='hidden' type='hidden' name='_method' value='DELETE'>
+    <input type='submit' value='Delete a College'>
+  </form>
 
-
-
-  <input id="<%= @college.name %>" type="checkbox" name="colleges[]" value="<%= @college.id %>">
-    <!-- <p><input type='hidden' name='_method' value='DELETE'/></p> -->
-
-    <p><input type='hidden' name='_method' value='PATCH'/></p>
-    <p><input type='submit' value='submit'/></p>
-    <input type="submit" value="Edit a College">
-</form>
-
-
-<!-- Per JP, move this show.erb form to my college/edit.erb file . I still need show.erb -->
+  <a href="/college/<%=@college.id%>/edit">Edit a College</a>

@@ -49,6 +49,7 @@ class CollegeController < ApplicationController
 
     else
       redirect '/student/registration'
+
     end
   end
 
@@ -62,7 +63,7 @@ class CollegeController < ApplicationController
       erb :'/college/show'
       # OR try plural colleges     erb :'colleges/edit'
     else
-      redirect '/student/login'
+      redirect '/college/edit'
       # Look at this: Is this where I want to go?
         end
       end
@@ -87,5 +88,6 @@ class CollegeController < ApplicationController
       @college.delete
       redirect '/'
     end
+
 
 end
