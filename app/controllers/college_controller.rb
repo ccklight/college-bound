@@ -1,8 +1,8 @@
 require './config/environment'
 
 class CollegeController < ApplicationController
-#
-  get '/colleges' do
+
+  get '/college' do
     @college = College.all
     erb :'college/index'
   end
@@ -25,17 +25,15 @@ class CollegeController < ApplicationController
         redirect '/new'
       else
           @college = College.create(params[:id])
+          #  @college = College.create(params)
           @college.save
         redirect "/college/#{@college.id}"
+    #
+    #  else
+    #   redirect 'students/login'
+    #
+    #  end
 
-
-#     else
-#       redirect 'students/login'
-# Update and create in Rails = post
-#     post '/recipes' do
-#      @college = College.create(params)
-#      redirect  "/colleges/#{@college.id}"
-#    end
         end
       end
     end
@@ -46,10 +44,8 @@ class CollegeController < ApplicationController
     if logged_in?
        @college = College.find_by_id(params[:id])
       erb :'/college/show'
-
     else
       redirect '/student/registration'
-
     end
   end
 
@@ -63,7 +59,7 @@ class CollegeController < ApplicationController
       erb :'/college/show'
       # OR try plural colleges     erb :'colleges/edit'
     else
-      redirect '/college/edit'
+      redirect 'college/''/edit'
       # Look at this: Is this where I want to go?
         end
       end
@@ -89,5 +85,5 @@ class CollegeController < ApplicationController
       redirect '/'
     end
 
-
 end
+# Update and create in Rails = post
