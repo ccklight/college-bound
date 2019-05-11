@@ -3,8 +3,10 @@ require './config/environment'
 class CollegeController < ApplicationController
 
   get '/college' do
+    if logged_in?
     @college = College.all
     erb :'college/index'
+    end
   end
 # Try singular college      erb :'college/index'
 
@@ -33,14 +35,13 @@ class CollegeController < ApplicationController
     #   redirect 'students/login'
     #
     #  end
-
         end
       end
     end
 
 
   get '/college/:id' do
-        # binding.pry
+  # binding.pry
     if logged_in?
        @college = College.find_by_id(params[:id])
       erb :'/college/show'
@@ -53,15 +54,10 @@ class CollegeController < ApplicationController
   get '/college/:id/edit' do
     if logged_in?
       @college = College.find_by_id(params[:id])
-      # OR try this method:   @college = College.find(params[:id])
-
-    if @college && @college.student == current_student
-      erb :'/college/show'
-      # OR try plural colleges     erb :'colleges/edit'
+      @college && @college.student == current_student
+      erb :'college/edit'
     else
-      redirect 'college/''/edit'
-      # Look at this: Is this where I want to go?
-        end
+      redirect '/college/show'
       end
     end
 
