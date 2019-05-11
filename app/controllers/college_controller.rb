@@ -57,7 +57,7 @@ class CollegeController < ApplicationController
       @college && @college.student == current_student
       erb :'college/edit'
     else
-      redirect '/college/show'
+      redirect '/student/registration'
       end
     end
 
