@@ -24,7 +24,7 @@ class CollegeController < ApplicationController
   post '/college' do
     if logged_in?
       if params[:id] == ""
-        redirect '/new'
+        redirect '/college/new'
       else
           @college = College.create(params[:id])
           #  @college = College.create(params)
