@@ -14,7 +14,7 @@ class StudentController < ApplicationController
 
   post '/registration' do
     if params[:username] == "" || params[:email] == "" || params[:password] == ""
-      registration  '/registration'
+      erb :'student/registration'
     else
 # binding.pry
       @student = Student.new(:username => params[:username], :email => params[:email], :password => params[:password])

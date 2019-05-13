@@ -8,7 +8,6 @@ class CollegeController < ApplicationController
     erb :'college/index'
     end
   end
-# Try singular college      erb :'college/index'
 
 
   get '/college/new' do
@@ -22,12 +21,10 @@ class CollegeController < ApplicationController
 
 
   post '/college' do
-    if logged_in?
-      if params[:id] == ""
+    if logged_in? && params[:id] == ""
         redirect '/college/new'
       else
           @college = College.create(params[:id])
-          #  @college = College.create(params)
           @college.save
         redirect "/college/#{@college.id}"
     #
@@ -35,7 +32,7 @@ class CollegeController < ApplicationController
     #   redirect 'students/login'
     #
     #  end
-        end
+        # end
       end
     end
 
