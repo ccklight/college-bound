@@ -27,12 +27,7 @@ class CollegeController < ApplicationController
           @college = College.create(params[:id])
           @college.save
         redirect "/college/#{@college.id}"
-    #
-    #  else
-    #   redirect 'students/login'
-    #
-    #  end
-        # end
+
       end
     end
 
@@ -43,7 +38,7 @@ class CollegeController < ApplicationController
        @college = College.find_by_id(params[:id])
       erb :'/college/show'
     else
-      redirect '/student/registration'
+      redirect '/login'
     end
   end
 
@@ -54,13 +49,12 @@ class CollegeController < ApplicationController
       @college && @college.student == current_student
       erb :'college/edit'
     else
-      redirect '/student/registration'
+      redirect '/id'
       end
     end
 
 
     patch '/college/:id' do
-      # Or try plural for route       patch '/colleges/:id' do
       @college = College.find_by_id(params[:id])
       @college.name = params[:name]
       @college.region = params[:region]
