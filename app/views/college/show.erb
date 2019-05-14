@@ -1,17 +1,12 @@
 <h1>This is views/college/SHOW</h1>
+<h2>Form Should Display 1 College-</h2>
 <h2></h2>
 
 <p><%=@college.name%></p>
 <p><%=@college.region%></p>
 
-<% @college.each do |college| %>
-    <h2><%= college %></h2>
-<% end %>
 
-
-
-
-  <form method='post' action='/college/<%@college.id%>/delete'>
+  <form method='post' action='/college/<%=@college.id%>/delete'>
     <!-- <form method='post' action='/college/:id/delete'> -->
 
     <input id='hidden' type='hidden' name='_method' value='DELETE'>
@@ -19,3 +14,5 @@
   </form>
 
   <a href="/college/<%=@college.id%>/edit">Edit a College</a>
+
+  
