@@ -25,8 +25,8 @@ class CollegeController < ApplicationController
         erb :'/college/new'
       else
           @college = College.create(params[:id])
-          @college.save #Might night be needed
-        # redirect "/college/#{@college.id}"
+          @college.save #Might not be needed
+
         redirect "/college/#{@college.id}"
 
         #/college/#{@college.id} is my Show page
@@ -40,12 +40,8 @@ class CollegeController < ApplicationController
     if logged_in?
        @college = College.find_by_id(params[:id])
        erb :'/college/show'
-
-    #   erb :'/college/index'
-    #erb :'/college/show'
     else
-      # redirect 'student/registration'
-      redirect "/#{@college.id}"
+      redirect "/college/#{@college.id}"
     end
   end
 
