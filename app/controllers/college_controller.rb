@@ -14,7 +14,7 @@ class CollegeController < ApplicationController
     if logged_in?
       erb :'college/new'
     else
-      redirect '/login'
+      redirect '/student/registration'
     end
   end
 
@@ -22,12 +22,15 @@ class CollegeController < ApplicationController
 
   post '/college' do
     if logged_in? && params[:id] == ""
-        redirect '/college/new'
+        erb :'/college/new'
       else
           @college = College.create(params[:id])
-          @college.save
-        redirect "/college/#{@college.id}"
+          @college.save #Might night be needed
+        # redirect "/college/#{@college.id}"
+        redirect "/#{@college.id}"
 
+        #/college/#{@college.id} is my Show page
+#Redirect '/college/#{college.id}'sends to get /college/:id
       end
     end
 
@@ -36,9 +39,10 @@ class CollegeController < ApplicationController
   # binding.pry
     if logged_in?
        @college = College.find_by_id(params[:id])
-      erb :'/college/show'
+       redirect "/#{@college.id}"
+    #   erb :'/college/index'
     else
-      redirect '/login'
+      redirect 'student/registration'
     end
   end
 

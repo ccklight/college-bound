@@ -42,7 +42,7 @@ class StudentController < ApplicationController
       session[:student_id] = @student.id
       redirect '/college/new'
     else
-      redirect '/student/login'
+      redirect '/login'
     end
   end
 

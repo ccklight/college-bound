@@ -4,6 +4,13 @@
 <p><%=@college.name%></p>
 <p><%=@college.region%></p>
 
+<% @college.each do |college| %>
+    <h2><%= college %></h2>
+<% end %>
+
+
+
+
   <form method='post' action='/college/<%@college.id%>/delete'>
     <!-- <form method='post' action='/college/:id/delete'> -->
 
