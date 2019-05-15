@@ -66,17 +66,19 @@ class CollegeController < ApplicationController
       @college.region = params[:region]
       @college.save
       redirect "/college/#{@college.id}"
-
-      # OR try plural college like this:  redirect to "/colleges/#{@college.id}"
     end
-
 
 
     delete '/college/:id' do
+      if logged_in?
       @college = College.find_by_id(params[:id])
+      if @college && @college.user ==current_user
       @college.delete
-      redirect '/'
     end
-
+      redirect '/colleges'
+    else
+      redirect '/login'
+    end
+  end
 end
 # Update and create in Rails = post
