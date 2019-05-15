@@ -1,7 +1,5 @@
 <h1>This is views/college/SHOW</h1>
 <h2>Form Should Display 1 College</h2>
-<h3>Peaches</h3>
-
 
 
 <p><%=@college.name%></p>
@@ -10,8 +8,8 @@
 <a href="/college/<%=@college.id%>/edit">Edit This College</a>
 <p></p>
 
-  <form method='post' action='/college/<%=@college.id%>/delete'>
-    <!-- <form method='post' action='/college/:id/delete'> -->
+  <!-- <form method='post' action='/college/<%=@college.id%>/delete'> -->
+    <form method='post' action='/college/:id/delete'>
 
     <input id='hidden' type='hidden' name='_method' value='DELETE'>
     <input type='submit' value='Delete a College'>

@@ -69,15 +69,15 @@ class CollegeController < ApplicationController
     end
 
 
-    delete '/college/:id' do
+    delete '/college/:id/delete' do
       if logged_in?
       @college = College.find_by_id(params[:id])
-      if @college && @college.user ==current_user
+      if @college && @college.user == current_user
       @college.delete
     end
-      redirect '/colleges'
-    else
-      redirect '/login'
+    #   redirect '/colleges'
+    # else
+    #   redirect '/login'
     end
   end
 end
