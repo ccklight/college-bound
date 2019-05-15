@@ -51,7 +51,7 @@ class CollegeController < ApplicationController
     if logged_in?
       @college = College.find_by_id(params[:id])
     if  @college && @college.student == current_student
-      erb :'college/edit'
+      erb :'/colleges/edit'
     else
       redirect '/college'
         end
@@ -72,11 +72,17 @@ class CollegeController < ApplicationController
     delete '/college/:id' do
       if logged_in?
       @college = College.find_by_id(params[:id])
-    # else
-      # if @college && @college.user == current_user
+      erb :'/college/show'
+    else
+      if @college && @college.user == current_user
       @college.delete
-      redirect '/college/:id'
-        end
+        
+      redirect '/student/logout'
+    end
+
+
+
+      end
   end
 end
 # Update and create in Rails = post

@@ -49,7 +49,20 @@ class StudentController < ApplicationController
 
   get '/logout' do
       session.clear
-      erb :'/student/logout'
+      redirect '/'
+      erb :logout
   end
+
+  #
+  # get '/sessions/logout' do
+  #     session.clear
+  #     redirect '/'
+  #   end
+
+    # get '/users/home' do
+    #
+    #     @user = User.find(session[:user_id])
+    #     erb :'/users/home'
+    #   end
 
 end
