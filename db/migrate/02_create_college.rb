@@ -14,7 +14,7 @@ class CreateCollege < ActiveRecord::Migration
       t.timestamps null: false
     end
   end
-end
+
 
 
 #IMPORTANT: Remember to add student id

@@ -3,21 +3,18 @@
 <h3>Peaches</h3>
 
 
-<%=@college.each do |college| %>
-      <div>
 
 <p><%=@college.name%></p>
 <p><%=@college.region%></p>
 
+<a href="/college/<%=@college.id%>/edit">Edit This College</a>
 
   <form method='post' action='/college/<%=@college.id%>/delete'>
     <!-- <form method='post' action='/college/:id/delete'> -->
 
     <input id='hidden' type='hidden' name='_method' value='DELETE'>
-    <!-- <input type='submit' value='Delete a College'> -->
+    <input type='submit' value='Delete a College'>
 
-  <a href="/college/<%=@college.id%>/edit">Edit This College</a>
   <p></p>
-  <a href="/college/<%=@college.id%>/delete">Delete This College</a>
 
   </form>

@@ -1,22 +1,11 @@
  <h1> This is Index, views/college/index Colleges-app/views/colleges/index.erb</h1>
-<h1>Banana</h1>
+
+  <ul>
   <% @colleges.each do |college| %>
-     <li><a href="/college/<%= college.slug %>"> Name: <%= college.name %></a></li>
-
-     <% College.all.each do |college| %>
-     <input id="<%= college.name %>" type="checkbox" name="colleges[]" value="<%= college.id %>">
-     <% end %>
-
-     <li><a href="/college/<%= college.slug %>"><%= college.name %></a></li>
-
+     <li><a href="/college/<%= college.id %>"><%= college.name %></a></li>
 
     Name: <%= college.name %>
     Region: <%= college.region %>
 
   <% end %>
-
-<form  action='/colleges' method='post'>
-<input id='hidden' type= 'hidden' name= '_method' value='PATCH'>
-<!-- <input type='text' name= 'college' value='<%=@college%>'> -->
-<input type='text' name= 'name' value='<%=@college%>'>
-<input type='submit' value='submit'>
+  </ul>

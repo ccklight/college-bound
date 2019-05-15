@@ -4,7 +4,7 @@ class CollegeController < ApplicationController
 
   get '/college' do
     if logged_in?
-    @college = College.all
+    @colleges = College.all
     erb :'college/index'
     end
   end
@@ -21,11 +21,12 @@ class CollegeController < ApplicationController
 
 
   post '/college' do
-    if logged_in? && params[:id] == ""
-        erb :'/college/new'
+    # binding.pry
+    if logged_in? && params[:name] == "" && params[:region] == ""
+
+        redirect '/college/new'
       else
-          @college = College.create(params[:id])
-          @college.save #Might not be needed
+          @college = College.create(name: params[:name], region: params[:region])
 
         redirect "/college/#{@college.id}"
 
@@ -49,12 +50,14 @@ class CollegeController < ApplicationController
   get '/college/:id/edit' do
     if logged_in?
       @college = College.find_by_id(params[:id])
-      @college && @college.student == current_student
-      erb :'college/show'
+    if  @college && @college.student == current_student
+      erb :'college/edit'
     else
-      redirect '/college/""/edit'
+      redirect '/college'
+        end
       end
     end
+
 
 
     patch '/college/:id' do

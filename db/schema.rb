@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(version: 2) do
     t.string   "extracurriculars"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
+    t.integer  "student_id"
   end
 
   create_table "students", force: :cascade do |t|
