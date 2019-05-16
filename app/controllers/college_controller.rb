@@ -22,16 +22,17 @@ class CollegeController < ApplicationController
 
   post '/college' do
     # binding.pry
-    if logged_in? && params[:name] == "" && params[:region] == ""
+    if !logged_in? || params[:name] == "" ||  params[:region] == ""
 
         redirect '/college/new'
+        #POSSIBLy redirect to login...think about this
       else
           @college = College.create(name: params[:name], region: params[:region])
 
         redirect "/college/#{@college.id}"
         end
     end
-
+#IMPORTANT : thus. Need to connect the Student to this particular college.Check in pry @college ==stuent etc.
 
   get '/college/:id' do
   # binding.pry
@@ -45,6 +46,7 @@ class CollegeController < ApplicationController
 
 
   get '/college/:id/edit' do
+    # binding.pry Thursday
     if logged_in?
       @college = College.find_by_id(params[:id])
     if  @college && @college.student == current_student
@@ -54,7 +56,7 @@ class CollegeController < ApplicationController
         end
       end
     end
-
+#Do checks here in this edit - Thursday
 
 
     patch '/college/:id' do
