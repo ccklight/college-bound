@@ -29,10 +29,7 @@ class CollegeController < ApplicationController
           @college = College.create(name: params[:name], region: params[:region])
 
         redirect "/college/#{@college.id}"
-
-        #/college/#{@college.id} is my Show page
-#Redirect '/college/#{college.id}'sends to get /college/:id
-      end
+        end
     end
 
 
@@ -72,15 +69,20 @@ class CollegeController < ApplicationController
     delete '/college/:id' do
       if logged_in?
       @college = College.find_by_id(params[:id])
-      erb :'/college/show'
+      # erb :'/college/show'
+
+    erb :'/student/logout'
+
+
     else
-      if @college && @college.user == current_user
+      if @college && @college.student == current_student
       @college.delete
-        
-      redirect '/student/logout'
+
+      # redirect '/student/logout'
+
+  redirect '/college/show'
+
     end
-
-
 
       end
   end
