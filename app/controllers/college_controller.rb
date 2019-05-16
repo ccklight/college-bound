@@ -28,6 +28,7 @@ class CollegeController < ApplicationController
         #POSSIBLy redirect to login...think about this
       else
           @college = College.create(name: params[:name], region: params[:region])
+        student_id =  College.create(name: params[:name], region: params[:region])  
 
         redirect "/college/#{@college.id}"
         end

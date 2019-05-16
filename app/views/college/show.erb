@@ -5,6 +5,9 @@
 <p><%=@college.name%></p>
 <p><%=@college.region%></p>
 
+    <input id='hidden' type='hidden' name='_method' value='PATCH'>
+    <input type='submit' value='Edit Your College'>
+
 <a href="/college/<%=@college.id%>/edit">Edit This College</a>
 <p></p>
 
