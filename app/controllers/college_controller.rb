@@ -47,10 +47,10 @@ class CollegeController < ApplicationController
 
 
   get '/college/:id/edit' do
-    # binding.pry Thursday
+    # binding.pry
     if logged_in?
-      @college = College.find_by_id(params[:id])
-    if  @college && @college.student == current_student
+      @college = College.find_by(params[:id])
+    if  @college || @college.student == current_student
       erb :'college/edit'
     else
       redirect '/college'

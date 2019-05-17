@@ -1,31 +1,29 @@
 
-<h2>This Edit Form Should Render Single College to Edit </h2>
-<h2>Mangoes</h2>
-<h3> This code is in app/views/college/edit.erb</h3>
-
+<!-- <h2>This Edit Form  Renders a Single College to Edit </h2>
+<h1>Mangoes</h1>
 <h1>Edit a College</h1>
 
-<form action="/colleges/<%=@college.id%>" method="POST">
-<!-- <form action="/colleges/:id" method="POST"> -->
-
-
-
+<form action="/colleges/:id" method="POST">
+  <%@student.each do |student|
+  <input type="checkbox" name="student[college_ids][]" id="<%=college.id%>" value="<%=college.id%>"><%=college.name%></input>
   <input id='hidden' type='hidden' name='_method' value='PATCH'>
+    <%end%>
+</form>
+ -->
 
-    <label for='region'>Region</label>
-    <input type='text' id='region' name='region' value='<%=@college.region%>'>
+<h1>Update Your College</h1>
 
-    <label for='name'>Name</label>
-    <input type='text' id='name' name='name' value='<%=@college.name%>'>
+<form action="/college/<%=@college.id%>" method="POST">
+  <label>Name:</label>
+  <br></br>
+  <input type="text" name="college[name]" id="college_name" value="<%=@college.name%>">
+  <br></br>
+  <label>Choose an existing student:</label>
+  <br></br>
 
-    <input type='submit' value='submit'>
-    <input type="submit" value="Edit a College">
+  <!-- <%Student.all.each do |student|%> -->
+    <%@student.each do |student|
 
-
-  <p><input type='hidden' type='hidden' name='_method' value='DELETE'/></p>
-    <input type="submit" value="Delete a College">
-
-
-  <input  type="checkbox"  id="<%= @college.name%>" name="colleges[]" value="<%= @college.id %>">
-
+    <input type="radio" name="college[student_id]" value="<%=student.id%>" id="<%=student.name%>" <%='checked' if @college.owner.name == student.name %>><%=student.name%></input>
+  <%end%>
 </form>

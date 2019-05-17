@@ -1,3 +1,4 @@
+
 require './config/environment'
 
 class StudentController < ApplicationController

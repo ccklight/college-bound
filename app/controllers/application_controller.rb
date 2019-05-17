@@ -16,6 +16,10 @@ class ApplicationController < Sinatra::Base
   end
 
 
+  get '/college/edit' do
+    "Hello World! How are ya'?"
+  end
+
 
   helpers do
     def logged_in?
