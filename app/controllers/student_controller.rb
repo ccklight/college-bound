@@ -37,6 +37,7 @@ class StudentController < ApplicationController
 
 
   post '/login' do
+    # binding.pry
     @student = Student.find_by(:username => params[:username])
     if @student && @student.authenticate(params[:password])
       session[:student_id] = @student.id
@@ -50,14 +51,10 @@ class StudentController < ApplicationController
   get '/logout' do
       session.clear
       redirect '/'
-      erb :logout
+
   end
 
-  #
-  # get '/sessions/logout' do
-  #     session.clear
-  #     redirect '/'
-  #   end
+
 
     # get '/users/home' do
     #

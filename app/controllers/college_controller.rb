@@ -28,7 +28,7 @@ class CollegeController < ApplicationController
         #POSSIBLy redirect to login...think about this
       else
           @college = College.create(name: params[:name], region: params[:region])
-        student_id =  College.create(name: params[:name], region: params[:region])  
+        student_id =  College.create(name: params[:name], region: params[:region])
 
         redirect "/college/#{@college.id}"
         end
@@ -75,7 +75,7 @@ class CollegeController < ApplicationController
       @college.delete
       # erb :'/college/show'
       # erb :'/student/logout'
-    redirect '/logout'
+    redirect '/college'
 
     # else
     #   if @college && @college.student == current_student

@@ -4,8 +4,11 @@
   <% @colleges.each do |college| %>
      <li><a href="/college/<%= college.id %>"><%= college.name %></a></li>
 
+
+    <% if college.name%>
     Name: <%= college.name %>
     Region: <%= college.region %>
+    <% end %>
 
   <% end %>
   </ul>
