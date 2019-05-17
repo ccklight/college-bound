@@ -1,15 +1,4 @@
 
-<!-- <h2>This Edit Form  Renders a Single College to Edit </h2>
-<h1>Mangoes</h1>
-<h1>Edit a College</h1>
-
-<form action="/colleges/:id" method="POST">
-  <%@student.each do |student|
-  <input type="checkbox" name="student[college_ids][]" id="<%=college.id%>" value="<%=college.id%>"><%=college.name%></input>
-  <input id='hidden' type='hidden' name='_method' value='PATCH'>
-    <%end%>
-</form>
- -->
 
 <h1>Update Your College</h1>
 
@@ -24,6 +13,21 @@
   <!-- <%Student.all.each do |student|%> -->
     <%@student.each do |student|
 
-    <input type="radio" name="college[student_id]" value="<%=student.id%>" id="<%=student.name%>" <%='checked' if @college.owner.name == student.name %>><%=student.name%></input>
-  <%end%>
+    <input type="checkbox" name="student[college_id][]" id="<%=college.id%>" value="<%=college.id%>"><%=college.name%></input>
+
+
 </form>
+<%end%>
+
+
+<!-- <h2>This Edit Form  Renders a Single College to Edit </h2>
+<h1>Mangoes</h1>
+<h1>Edit a College</h1>
+
+<form action="/colleges/:id" method="POST">
+  <%@student.each do |student|
+  <input type="checkbox" name="student[college_ids][]" id="<%=college.id%>" value="<%=college.id%>"><%=college.name%></input>
+  <input id='hidden' type='hidden' name='_method' value='PATCH'>
+    <%end%>
+</form>
+ -->
