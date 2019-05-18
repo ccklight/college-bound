@@ -26,7 +26,6 @@ class CollegeController < ApplicationController
         redirect '/college/new'
       else
         @college = College.create(name: params[:name], region: params[:region])
-        # @student =  College.create(name: params[:name], region: params[:region])
         redirect "/college/#{@college.id}"
         end
     end
