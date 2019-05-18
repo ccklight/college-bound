@@ -1,33 +1,14 @@
 
-
 <h1>Update Your College</h1>
+<h2>Mangoes</h2>
+
 
 <form action="/college/<%=@college.id%>" method="POST">
-  <label>Name:</label>
-  <br></br>
-  <input type="text" name="college[name]" id="college_name" value="<%=@college.name%>">
-  <br></br>
-  <label>Choose an existing student:</label>
-  <br></br>
 
-  <!-- <%Student.all.each do |student|%> -->
-    <%@student.each do |student|
+<input type="text" name="college[name]" id="college_name" value="<%=@college.name%>">
 
-    <input type="checkbox" name="student[college_id][]" id="<%=college.id%>" value="<%=college.id%>"><%=college.name%></input>
-
+<p> College Name: <input type='text' id='name' name='name'></p>
+<br><p>Region: <input type='text' id='region' name='region'></p><br>
+<input type='submit' id='submit' value='submit'>
 
 </form>
-<%end%>
-
-
-<!-- <h2>This Edit Form  Renders a Single College to Edit </h2>
-<h1>Mangoes</h1>
-<h1>Edit a College</h1>
-
-<form action="/colleges/:id" method="POST">
-  <%@student.each do |student|
-  <input type="checkbox" name="student[college_ids][]" id="<%=college.id%>" value="<%=college.id%>"><%=college.name%></input>
-  <input id='hidden' type='hidden' name='_method' value='PATCH'>
-    <%end%>
-</form>
- -->

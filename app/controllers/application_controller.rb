@@ -11,7 +11,7 @@ class ApplicationController < Sinatra::Base
 
 
   get '/' do
-    erb :index # This is the Whole Enchilada Index
+    erb :index 
 
   end
 

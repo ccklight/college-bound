@@ -10,6 +10,7 @@ class CollegeController < ApplicationController
   end
 
 
+
   get '/college/new' do
     if logged_in?
       erb :'college/new'
@@ -21,29 +22,26 @@ class CollegeController < ApplicationController
 
 
   post '/college' do
-    # binding.pry
     if !logged_in? || params[:name] == "" ||  params[:region] == ""
-
         redirect '/college/new'
-        #POSSIBLy redirect to login...think about this
       else
-          @college = College.create(name: params[:name], region: params[:region])
-        student_id =  College.create(name: params[:name], region: params[:region])
-
+        @college = College.create(name: params[:name], region: params[:region])
+        # @student =  College.create(name: params[:name], region: params[:region])
         redirect "/college/#{@college.id}"
         end
     end
-#IMPORTANT : thus. Need to connect the Student to this particular college.Check in pry @college ==stuent etc.
+
+
 
   get '/college/:id' do
-  # binding.pry
     if logged_in?
        @college = College.find_by_id(params[:id])
        erb :'/college/show'
     else
       redirect "/college/#{@college.id}"
-    end
+      end
   end
+
 
 
   get '/college/:id/edit' do
@@ -57,7 +55,7 @@ class CollegeController < ApplicationController
         end
       end
     end
-#Do checks here in this edit - Thursday
+
 
 
     patch '/college/:id' do
@@ -69,20 +67,10 @@ class CollegeController < ApplicationController
     end
 
 
+
     delete '/college/:id' do
-      # if logged_in?
       @college = College.find_by_id(params[:id])
       @college.delete
-      # erb :'/college/show'
-      # erb :'/student/logout'
     redirect '/college'
-
-    # else
-    #   if @college && @college.student == current_student
-    #   @college.delete
-      # redirect '/student/logout'
-      # redirect '/college/show'
-
     end
 end
-# Update and create in Rails = post
