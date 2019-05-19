@@ -64,11 +64,8 @@ class CollegeController < ApplicationController
       @college.save
       redirect "/college/#{@college.id}"
 
-@college = college.find(params[:id]) 
-@college.delete(params[:college])
-
-
-
+      @college = college.find(params[:id])
+      @college.delete(params[:college])
     end
 
 
