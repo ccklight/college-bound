@@ -4,9 +4,12 @@
 
 
 <form action="/college/<%=@college.id%>" method="POST">
+<input id="hidden" type="hidden" name="_method" value="patch">
+<!-- <label>Name:</label> -->
+
 
 <p> College Name: <input type='text' id='name' name='name'></p>
-<br><p>Region: <input type='text' id='region' name='region'></p><br>
 <input type='submit' id='submit' value='submit'>
+
 
 </form>

@@ -48,9 +48,9 @@ class CollegeController < ApplicationController
     if logged_in?
       @college = College.find_by(params[:id])
     if  @college || @college.student == current_student
-      erb :'college/edit'
+      erb :'/college/edit'
     else
-      redirect '/college'
+      redirect '/college/new'
         end
       end
     end
@@ -63,6 +63,12 @@ class CollegeController < ApplicationController
       @college.region = params[:region]
       @college.save
       redirect "/college/#{@college.id}"
+
+@college = college.find(params[:id]) 
+@college.delete(params[:college])
+
+
+
     end
 
 
