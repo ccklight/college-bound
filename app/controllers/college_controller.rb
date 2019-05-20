@@ -43,10 +43,9 @@ class CollegeController < ApplicationController
 
 
 
-  get '/college/:id/edit' do
-    # binding.pry
+  get '/college/:id/edit' do  #load edit form
     if logged_in?
-      @college = College.find_by(params[:id])
+      @college = College.find_by_id(params[:id])
     if  @college || @college.student == current_student
       erb :'/college/edit'
     else
@@ -58,15 +57,18 @@ class CollegeController < ApplicationController
 
 
     patch '/college/:id' do
-      @college = College.find_by_id(params[:id])
-      @college.name = params[:name]
-      @college.region = params[:region]
+      if @college = College.find_by_id(params[:id])
+         @college.name = params[:name]
+         @college.region = params[:region]
       @college.save
-      redirect "/college/#{@college.id}"
+        erb :'/college/edit'
+    else
+        redirect "/college/#{@college.id}"
 
       @college = college.find(params[:id])
       @college.delete(params[:college])
     end
+  end
 
 
 

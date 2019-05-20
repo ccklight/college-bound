@@ -1,27 +1,29 @@
 
 <h1>Update My College</h1>
-<h2>Mangoes</h2>
+<% if logged_in? %>
+<!-- <h1>Welcome to Update/Edit College<%= current_student.username %></h1> -->
+
+<h1>Welcome to Update/Edit College<%="#{current_student.username}"%></h1>
+
+<h3>My College: <%= current_student %></h3>
 
 
 <form action="/college/<%=@college.id%>" method="POST">
 <input id="hidden" type="hidden" name="_method" value="patch">
 <!-- <label>Name:</label> -->
 
+<body id="page-top">
 
-<p> College Name: <input type='text' id='name' name='name'></p>
-<input type='submit' id='submit' value='submit'>
-
-
-</form>
+  <p> College Name: <input type='text' id='name' name='name'></p>
+  <input type='submit' id='submit' value='submit'>
 
 
-<!-- <input type="text" name="student[name]" id="student_name" value="<%=@student.name%>">
-<label>Choose an existing college:</label>
+  </form>
 
 
-edit.erb
-This on Sunday 1:13pm
-<%@college.each do |college|%>
-<input type="text" name="student[college_ids][]" id="<%=college.id%>" value="<%=college.id%>"<%=college.name%></input>
 
- -->
+<% end %>
+
+    <h4><a href="/logout">Log Out</a></h4>
+
+</body>
