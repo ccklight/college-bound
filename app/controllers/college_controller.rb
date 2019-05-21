@@ -53,7 +53,7 @@ class CollegeController < ApplicationController
         end
       end
     end
-
+#Might need to add disallow editing if not current_student
 
 
     patch '/college/:id' do
@@ -65,16 +65,26 @@ class CollegeController < ApplicationController
     else
         redirect "/college/#{@college.id}"
 
-      @college = college.find(params[:id])
-      @college.delete(params[:college])
+      # @college = college.find(params[:id])
+      # @college.update(params[:college])
     end
   end
+
+# if !params[:student].keys.include?("college_ids")
+#   params[:student]["college_ids"] = []
+# end
+
 
 
 
     delete '/college/:id' do
+      # if !params[:student].include?("college_ids")
+      if
+        # @student == current_student[:session_id]
       @college = College.find_by_id(params[:id])
       @college.delete
     redirect '/college'
     end
+  end
 end
+#Might need to add disallow if not current student
