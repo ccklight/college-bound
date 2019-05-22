@@ -61,12 +61,10 @@ class CollegeController < ApplicationController
          @college.name = params[:name]
          @college.region = params[:region]
       @college.save
-        erb :'/college/edit'
-    else
         redirect "/college/#{@college.id}"
+      else
+        redirect '/college'
 
-      # @college = college.find(params[:id])
-      # @college.update(params[:college])
     end
   end
 
