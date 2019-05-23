@@ -3,25 +3,20 @@ College Bound
 This application, written in Sinatra, is for college-bound students to keep track of their college applications.
 
 Getting Started
-*These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
-
 Prerequisites
-There are no special installations to use this application.
+There are no special installations to use this application.  If the Student encounters an error page, just click the browser's back arrow key.  Thank you. 
 
 
 Installing
-To begin using the application, at your browser, type this in: ***
-
+To begin using the application, at your browser, if this were an actual application and not one using an IDE, you would type in www.collegebound.com in your browser.
 
 
 Built With
 Sinatra
 Gemfile - Dependency Management
 
-Please read CONTRIBUTING.md for details on our code of conduct, and the process for submitting pull requests to us.
+Please read CONTRIBUTING.md for details on our code of conduct, and the process for submitting pull requests to me.
 
-Versioning
-*** for versioning. For the versions available, see the tags on this repository.
 
 Author
 Cheryl K.
