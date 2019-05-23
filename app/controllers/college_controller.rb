@@ -43,7 +43,7 @@ class CollegeController < ApplicationController
 
 
 
-  get '/college/:id/edit' do  #load edit form
+  get '/college/:id/edit' do
     if logged_in?
       @college = College.find_by_id(params[:id])
     if  @college || @college.student == current_student
@@ -53,7 +53,7 @@ class CollegeController < ApplicationController
         end
       end
     end
-#Might need to add disallow editing if not current_student
+
 
 
     patch '/college/:id' do
@@ -68,21 +68,15 @@ class CollegeController < ApplicationController
     end
   end
 
-# if !params[:student].keys.include?("college_ids")
-#   params[:student]["college_ids"] = []
-# end
-
-
 
 
     delete '/college/:id' do
-      # if !params[:student].include?("college_ids")
+
       if
-        # @student == current_student[:session_id]
+
       @college = College.find_by_id(params[:id])
       @college.delete
     redirect '/college'
     end
   end
 end
-#Might need to add disallow if not current student

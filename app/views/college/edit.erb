@@ -1,8 +1,7 @@
 
 <h1>Update My College</h1>
-<h2>Checkers</h2>
 <% if logged_in? %>
-<!-- <h1>Welcome to Update/Edit College<%= current_student.username %></h1> -->
+
 
 <h1>Welcome to Update/Edit College<%="#{current_student.username}"%></h1>
 
@@ -10,17 +9,12 @@
 
 
 <form action="/college/<%=@college.id%>" method="POST">
-<input id="hidden" type="hidden" name="_method" value="patch">
-<!-- <label>Name:</label> -->
-
-<body id="page-top">
-
+  <input id="hidden" type="hidden" name="_method" value="patch">
+  <body id="page-top">
   <p> College Name: <input type='text' id='name' name='name' value='<%=@college.name%>'></p>
   <input type='submit' id='submit' value='submit'>
 
-
-  </form>
-
+</form>
 
 
 <% end %>
