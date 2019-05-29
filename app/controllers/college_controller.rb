@@ -57,17 +57,24 @@ class CollegeController < ApplicationController
 
 
     patch '/college/:id' do
-      if @college = College.find_by_id(params[:id])
+      @college.student == current_user
+      if @college &&@college.student == current_student && @college = College.find_by_id(params[:id])
          @college.name = params[:name]
          @college.region = params[:region]
-      @college.save
+         @college.save
         redirect "/college/#{@college.id}"
       else
         redirect '/college'
 
     end
   end
-
+********
+FWITTER
+@tweet = Tweet.find_by_id(params[:id])
+        if @tweet && @tweet.user == current_user
+          if @tweet.update(content: params[:content])
+            redirect to "/tweets/#{@tweet.id}"
+********
 
 
     delete '/college/:id' do
