@@ -57,8 +57,9 @@ class CollegeController < ApplicationController
 
 
     patch '/college/:id' do
-      @college.student == current_user
-      if @college &&@college.student == current_student && @college = College.find_by_id(params[:id])
+        @college.student == current_user
+      if @college && @college.student == current_student
+         @college = College.find_by_id(params[:id])
          @college.name = params[:name]
          @college.region = params[:region]
          @college.save
