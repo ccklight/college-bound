@@ -3,9 +3,9 @@
 <p><%=@college.name%></p>
 <p><%=@college.region%></p>
 
-    <input id='hidden' type='hidden' name='_method' value='PATCH'>
 
-<%=if @college.student == current_student%>
+
+<%if @college.student == current_student%>
 <a href="/college/<%=@college.id%>/edit">Edit This College</a>
 <p></p>
 
