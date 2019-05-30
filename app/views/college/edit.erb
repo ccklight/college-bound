@@ -1,12 +1,10 @@
 
 <h1>Update My College</h1>
-<% if logged_in? %>
-
+<% if logged_in? && @college.student == current_student%>
 
 <h1>Welcome to Update/Edit College<%="#{current_student.username}"%></h1>
 
 <h3>My College: <%= current_student %></h3>
-
 
 <form action="/college/<%=@college.id%>" method="POST">
   <input id="hidden" type="hidden" name="_method" value="patch">
@@ -15,19 +13,8 @@
   <input type='submit' id='submit' value='submit'>
 </form>
 
-
 <% end %>
 
     <h4><a href="/logout">Log Out</a></h4>
 
 </body>
-******************
-FWITTER
-<h2> Edit Tweet </h2>
-
-<form method="post" action="/tweets/<%=@tweet.id%>">
-  <input id="hidden" type="hidden" name="_method" value="PATCH">
-  <input type="text" name="content" value="<%= @tweet.content %>">
-  <input type="submit" value="submit">
-</form>
-******************

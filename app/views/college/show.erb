@@ -1,27 +1,20 @@
-<h1>My One New College<h1>
+<h1>My 1 New College<h1>
 
-<p><%=@college.name%></p>
-<p><%=@college.region%></p>
+<p><h2><%=@college.name%></h2></p>
+<p><h2><%=@college.region%></h2></p>
+
+
 
 <%if @college.student == current_student%>
-<a href="/colleges/<%=@college.id%>/edit">Edit This College</a>
+
+
+<a href="/college/<%=@college.id%>/edit">Edit This College</a>
 <p></p>
 
-  <form method='post' action='/college/<%=@college.id%>'>
-<!-- <form method ="post" action="/colleges/<%=@college.id%>/delete"> -->
+
+<form method='post' action='/college/<%=@college.id%>/edit'>
     <input id='hidden' type='hidden' name='_method' value='DELETE'>
     <input type='submit' id= "Delete College" value='delete a college'>
-  </form>
-
-<%end%>
-*************
-FWITTER
-<p><%= @tweet.content %>
-
-<form method="post" action="/tweets/<%=@tweet.id%>/delete">
-  <input id="hidden" type="hidden" name="_method" value="DELETE">
-  <input type="submit" value="Delete Tweet">
 </form>
 
-<a href="/tweets/<%=@tweet.id%>/edit">Edit Tweet </a>
-*************
+<%end%>
