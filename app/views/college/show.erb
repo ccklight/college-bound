@@ -3,14 +3,10 @@
 <p><h2><%=@college.name%></h2></p>
 <p><h2><%=@college.region%></h2></p>
 
-
-
 <%if @college.student == current_student%>
-
 
 <a href="/college/<%=@college.id%>/edit">Edit This College</a>
 <p></p>
-
 
 <form method='post' action='/college/<%=@college.id%>/edit'>
     <input id='hidden' type='hidden' name='_method' value='DELETE'>

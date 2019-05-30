@@ -14,9 +14,10 @@ class StudentController < ApplicationController
 
 
   post '/registration' do
-    #put binding.pry here and use same name in db and pry to prevent ie using if statement
+    
     if params[:username] == "" || params[:email] == "" || params[:password] == ""
       erb :'/student/registration'
+
     else
       @student = Student.new(:username => params[:username], :email => params[:email], :password => params[:password])
       @student.save

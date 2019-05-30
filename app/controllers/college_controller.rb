@@ -69,7 +69,6 @@ class CollegeController < ApplicationController
       else
 
         redirect "/college/#{@college.id}/edit"
-
     end
   end
 

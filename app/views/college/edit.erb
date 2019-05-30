@@ -2,9 +2,8 @@
 <h1>Update My College</h1>
 <% if logged_in? && @college.student == current_student%>
 
-<h1>Welcome to Update/Edit College<%="#{current_student.username}"%></h1>
+<h2>Hello, <%="#{current_student.username}, Update College Here"%></h2>
 
-<h3>My College: <%= current_student %></h3>
 
 <form action="/college/<%=@college.id%>" method="POST">
   <input id="hidden" type="hidden" name="_method" value="patch">
