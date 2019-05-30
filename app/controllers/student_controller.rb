@@ -14,6 +14,7 @@ class StudentController < ApplicationController
 
 
   post '/registration' do
+    #put binding.pry here and use same name in db and pry to prevent ie using if statement
     if params[:username] == "" || params[:email] == "" || params[:password] == ""
       erb :'/student/registration'
     else
@@ -42,7 +43,7 @@ class StudentController < ApplicationController
     @student = Student.find_by(:username => params[:username])
     if @student && @student.authenticate(params[:password])
       session[:student_id] = @student.id
-      redirect '/college/new'
+      redirect '/college'
     else
       redirect '/login'
       end
