@@ -3,15 +3,25 @@
 <p><%=@college.name%></p>
 <p><%=@college.region%></p>
 
-
-
 <%if @college.student == current_student%>
-<a href="/college/<%=@college.id%>/edit">Edit This College</a>
+<a href="/colleges/<%=@college.id%>/edit">Edit This College</a>
 <p></p>
 
   <form method='post' action='/college/<%=@college.id%>'>
+<!-- <form method ="post" action="/colleges/<%=@college.id%>/delete"> -->
     <input id='hidden' type='hidden' name='_method' value='DELETE'>
-    <input type='submit' value='delete a college'>
+    <input type='submit' id= "Delete College" value='delete a college'>
   </form>
 
 <%end%>
+*************
+FWITTER
+<p><%= @tweet.content %>
+
+<form method="post" action="/tweets/<%=@tweet.id%>/delete">
+  <input id="hidden" type="hidden" name="_method" value="DELETE">
+  <input type="submit" value="Delete Tweet">
+</form>
+
+<a href="/tweets/<%=@tweet.id%>/edit">Edit Tweet </a>
+*************
