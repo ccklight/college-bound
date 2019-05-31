@@ -14,16 +14,24 @@ class StudentController < ApplicationController
 
 
   post '/registration' do
-    
+
     if params[:username] == "" || params[:email] == "" || params[:password] == ""
       erb :'/student/registration'
 
+
     else
+      if @student = Student.find_by(:username => params[:username])
+
+      redirect '/registration'
+
+    else
+
       @student = Student.new(:username => params[:username], :email => params[:email], :password => params[:password])
       @student.save
       session[:student_id] = @student.id
       puts params
       redirect  '/college'
+          end
       end
   end
 
