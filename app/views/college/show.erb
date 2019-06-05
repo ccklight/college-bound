@@ -8,7 +8,7 @@
 <a href="/college/<%=@college.id%>/edit">Edit This College</a>
 <p></p>
 
-<form method='post' action='/college/<%=@college.id%>/edit'>
+<form method='post' action='/college/<%=@college.id%>'>
     <input id='hidden' type='hidden' name='_method' value='DELETE'>
     <input type='submit' id= "Delete College" value='delete a college'>
 </form>
