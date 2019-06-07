@@ -61,7 +61,6 @@ class CollegeController < ApplicationController
          @college = College.find_by_id(params[:id])
       if @college && @college.student == current_student
 
-
          @college.name = params[:name]
          @college.region = params[:region]
          @college.save
@@ -74,7 +73,7 @@ class CollegeController < ApplicationController
 
 
     delete '/college/:id' do
-    
+
       @college = College.find_by_id(params[:id])
       if @college && @college.student == current_student
       @college.delete

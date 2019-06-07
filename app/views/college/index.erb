@@ -6,8 +6,9 @@
 
 
     <% if college.name%>
-    College Name: <%= college.name %>
-    Region: <%= college.region %>
-    Student Name: <%=current_student %>
+    <p>College Name: <%= college.name %><p>
+    <p>Region: <%= college.region %><p>
+    <p>Student Name: <%=current_student.username%><p>
     <% end %>
+
   <% end %>
