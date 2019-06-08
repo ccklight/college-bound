@@ -6,22 +6,10 @@
 
 
     <% if college.name%>
+
     <p>College Name: <%= college.name %><p>
     <p>Region: <%= college.region %><p>
-     <p>Student Name: <%=current_student.username%><p>
+    <p>Student Name: <%=college.student.username%><p>
 
-
-<!-- # <%figure.titles.each do |title|%>
-# <li><%=title.name%></li>
-#
-#
-#         <p>Student Name: <%=current_student.username%><p> Only if
-#           that college was created by that student.
-#           @college = College.create then
-#           @college.student = current_student??
-#           What would the 'else part' mean? -->
-
-
-    <% end %>
-
+      <% end %>
   <% end %>
