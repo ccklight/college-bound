@@ -21,8 +21,7 @@ class StudentController < ApplicationController
 
     else
       if @student = Student.find_by(:username => params[:username])
-
-      redirect '/registration'
+      redirect '/login'
 
     else
 
