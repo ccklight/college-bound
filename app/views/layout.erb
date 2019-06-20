@@ -9,13 +9,22 @@
 
 
   <body>
-    <img src=https://www.uml.edu/Images/logo_tcm18-196751.svg alt="Picture of a College">
+    <img src="https://www.uml.edu/Images/logo_tcm18-196751.svg" alt="Picture of a College">
+    <img src="http://www.ruhsc.org/wp-content/uploads/2018/10/images-5-696x418.jpeg" alt="Picture of Harvard University">
 
     <div class="wrapper">
-    <% if logged_in? %>
+      <% if logged_in? %>
     <%=current_student.username%>
+    
     <a href="/logout"> Logout</a>
     <a href="/college"> The List of Colleges</a>
+    <a href="/college/new"> Create a New College</a>
+    <a href="/">Home</a>
+      <% else %>
+
+    <a href="/registration">Register Here</a>
+    <a href="/login">Login Here</a>
+
     <% end %>
 
         <%= yield %>
