@@ -12,11 +12,8 @@ class CollegeController < ApplicationController
 
 
   get '/college/new' do
-    if logged_in?
-      erb :'college/new'
-    else
-      redirect '/login'
-    end
+   redirect_if_not_logged_in
+      erb :'/college/new'
   end
 
 
@@ -77,8 +74,11 @@ class CollegeController < ApplicationController
       @college = College.find_by_id(params[:id])
       if @college && @college.student == current_student
       @college.delete
+    redirect  '/college'
+      else
     redirect '/college'
     end
+
   end
 
 end

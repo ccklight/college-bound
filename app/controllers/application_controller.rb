@@ -23,6 +23,14 @@ class ApplicationController < Sinatra::Base
     end
 
 
+    def redirect_if_not_logged_in
+      if !logged_in?
+      redirect '/login'
+        end
+    end
+
+
+
     def current_student
       @current_student ||= Student.find_by(id: session[:student_id]) if session[:student_id]
     end
