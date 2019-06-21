@@ -3,10 +3,9 @@ require './config/environment'
 class CollegeController < ApplicationController
 
   get '/college' do
-    if logged_in?
+    redirect_if_not_logged_in
     @colleges = College.all
     erb :'college/index'
-    end
   end
 
 
