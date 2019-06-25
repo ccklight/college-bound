@@ -36,6 +36,7 @@ class CollegeController < ApplicationController
        erb :'/college/show'
       end
 
+
   get '/college/:id/edit' do
     if logged_in?
       @college = College.find_by_id(params[:id])
@@ -49,7 +50,8 @@ class CollegeController < ApplicationController
 
 
     patch '/college/:id' do
-         @college = College.find_by_id(params[:id])
+      redirect_if_not_logged_in
+         @college = find_college_by_id(params[:id])
       if @college && @college.student == current_student
 
          @college.name = params[:name]
