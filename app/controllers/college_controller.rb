@@ -31,15 +31,10 @@ class CollegeController < ApplicationController
 
 
   get '/college/:id' do
-    if logged_in?
+    redirect_if_not_logged_in
        @college = College.find_by_id(params[:id])
        erb :'/college/show'
-    else
-      redirect "/college/#{@college.id}"
       end
-  end
-
-
 
   get '/college/:id/edit' do
     if logged_in?
