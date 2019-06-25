@@ -17,17 +17,16 @@ class ApplicationController < Sinatra::Base
 
 
   helpers do
-
     def logged_in?
       !!current_student
     end
 
 
-******
+
 def find_college_by_id(id)
   @college = College.find_by_id(id)
 end
-*******
+
 
     def redirect_if_not_logged_in
       if !logged_in?
